@@ -16,7 +16,6 @@ quiz_agent = Agent(
     and core retention without requiring deep, long_form essay grading.
     """,
     
-    tools=[],
     llm=llm,
     verbose=True,
     allow_delegation=False  

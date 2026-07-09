@@ -1,5 +1,5 @@
 from crewai import Task
-from .studyplanner_agent import studyplanner_agent
+from .agent import studyplanner_agent
 
 
 def studyplanner_task(student_question, student_profile, previous_learning):

@@ -1,5 +1,5 @@
 from crewai import Task
-from .quiz_agent import quiz_agent
+from .agent import quiz_agent
 
 def generate_quiz_task(student_question: str, student_profile: str = "None", previous_learning: str = "None"):
     
