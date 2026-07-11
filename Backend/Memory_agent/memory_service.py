@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 #Creating a memory file
-MEMORY_FILE = "Backend/Memory_agent/student_memory.json"
+MEMORY_FILE = "Memory_agent/student_memory.json"
 
 #----------------------------------STUDENT PROFILE--------------------------------------------
 class StudentMemory:
@@ -14,7 +14,7 @@ class StudentMemory:
     # Create JSON if it doesn't exist
     def initialize_memory(self):
 
-        os.makedirs("Backend/Memory_agent", exist_ok=True)
+        os.makedirs("Memory_agent", exist_ok=True)
 
         if not os.path.exists(MEMORY_FILE):
 

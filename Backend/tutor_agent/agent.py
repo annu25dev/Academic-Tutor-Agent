@@ -1,5 +1,6 @@
 from crewai import Agent
 from llm import llm
+from RAG_agent.rag_tool import rag_tool
 
 tutor_agent=Agent(
     role="Academic Tutor",
@@ -16,6 +17,7 @@ tutor_agent=Agent(
        Your mission is not only to answer questions but also to become a trusted personal mentor throughout the student's academic journey.
         """
 ),
+tools=[rag_tool],
 
     llm=llm,
     verbose=True,

@@ -3,7 +3,7 @@ from .agent import tutor_agent
 from llm import llm
 
 
-def create_Tutor_agent(student_question, student_profile, previous_learning):
+def Tutor_task(student_question, student_profile, previous_learning):
 
     task = Task(
 
@@ -33,6 +33,13 @@ Instructions:
 10. Generate one practice question.
 11. End with a short summary.
 12. Suggest what the student should study next.
+13. ALWAYS call the Academic RAG Tool first before answering.
+14. Read the retrieved context carefully.
+15. If the retrieved context contains relevant information,
+answer ONLY from that context.
+16. If the retrieved context is empty,
+then answer using your own knowledge.
+17. Mention the document source whenever available.
 """,
 
         expected_output="""

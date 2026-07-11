@@ -1,7 +1,8 @@
 from crewai import Agent
 from llm import llm
+from RAG_agent.rag_tool import rag_tool
 
-studyplanner_agent = Agent(
+planner_agent = Agent(
     role="Study Planner Agent",
     
     goal="""
@@ -15,6 +16,7 @@ studyplanner_agent = Agent(
     your timelines based on whether the student is a beginner or advanced, and you always 
     prioritize active recall and spaced repetition techniques.
     """,
+    tools=[rag_tool],
     
     llm=llm,
     verbose=True,

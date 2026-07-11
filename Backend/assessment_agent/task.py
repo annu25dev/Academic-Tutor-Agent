@@ -1,7 +1,6 @@
 from crewai import Task
 from .agent import assessment_agent
 
-
 def assessment_task(
 
     student_question,
@@ -41,8 +40,12 @@ Your responsibilities:
 1. Understand the student's request.
 
 2. If student Answer is empty or not provided:
-generate descriptive, case-study, application-based,
-scenario-based, or coding questions.
+generate 5 questions of following type:
+- conceptual
+- Application-Based
+- scenario-Based
+- Analytical question
+- case study question
 
 3. Never generate MCQs, True/False,
 Fill in the blanks, or objective quizzes.
@@ -92,6 +95,15 @@ Always personalize the assessment using
 Student Profile and Previous Learning.
 
 Never teach the complete topic again.
+9. ALWAYS use the Academic RAG Tool first before creating or evaluating an assessment.
+
+10. Read the retrieved context carefully.
+
+11. If the retrieved context contains relevant information, generate assessment questions or evaluate student answers ONLY using that context.
+
+12. If no relevant context is retrieved, perform the assessment using your own knowledge.
+
+13. Mention the document source whenever available.
 
 """,
 
@@ -101,7 +113,8 @@ Return a personalized assessment according to the student's request.
 
 Possible outputs include:
 
-• Descriptive assessment questions
+• 5 conceptual, case-study, application-based,
+  scenario-based,analytical question and if topic asked by student is related to code then also create coding questions that placement oriented.
 
 • Coding questions
 

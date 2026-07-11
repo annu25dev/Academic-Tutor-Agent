@@ -87,7 +87,7 @@ def split_documents(documents,chunk_size=800,chunk_overlap=0):
 
 #---------------------   -----3. EMBEDDING & STORING IN VECTOR DATABASE----------------------------
 
-def create_vector_store(chunks,persist_directory="Backend\RAG_agent\db\chroma_db"):
+def create_vector_store(chunks,persist_directory="RAG_agent/db/chroma_db"):
     #Creating and persisting ChromaDB Vector Store
     print("\n Creating embeddings amd storing in ChromaDB")
 
@@ -117,10 +117,10 @@ def main():
     file_path=input("Enter file path: ").strip().strip('"')
 
     #1. Uploading The File
-    upload_document(file_path, docs_path="Backend\RAG_agent\docs")
+    upload_document(file_path, docs_path="RAG_agent/docs")
 
     #2. Loading The Files
-    documents=load_documents(docs_path="Backend\RAG_agent\docs")
+    documents=load_documents(docs_path="RAG_agent/docs")
 
     #3. Chunking the files
     chunks=split_documents(documents)

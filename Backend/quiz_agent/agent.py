@@ -1,5 +1,6 @@
 from crewai import Agent
 from llm import llm  
+from RAG_agent.rag_tool import rag_tool
 
 quiz_agent = Agent(
     role="Quiz Agent",
@@ -15,6 +16,7 @@ quiz_agent = Agent(
     quizzes (MCQs, blanks, and short answers) that verify basic comprehension
     and core retention without requiring deep, long_form essay grading.
     """,
+    tools=[rag_tool],
     
     llm=llm,
     verbose=True,

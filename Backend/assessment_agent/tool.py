@@ -1,4 +1,5 @@
 from crewai.tools import tool
+from RAG_agent.rag_tool import rag_tool
 
 
 @tool("SWOT Generator")
@@ -92,5 +93,5 @@ Recommended Next Topic
 {next_topic}
 """
 assessment_tools=[
-    generate_swot,format_score,feedback
+    generate_swot,format_score,feedback,rag_tool
 ]

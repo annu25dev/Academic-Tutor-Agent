@@ -1,8 +1,8 @@
 from crewai import Task
-from .agent import studyplanner_agent
+from .agent import planner_agent
 
 
-def studyplanner_task(student_question, student_profile, previous_learning):
+def planner_task(student_question, student_profile, previous_learning):
     
     return Task(
         description=f"""
@@ -24,6 +24,11 @@ def studyplanner_task(student_question, student_profile, previous_learning):
         3. Create a realistic timeline (daily or weekly plan) based on the student's available time, current level, and learning speed.
         4. Add practical tasks, exercises, projects, or revision activities at important milestones.
         5. Make sure the plan is achievable and motivating for the student.
+        6. ALWAYS use the Academic RAG Tool first before creating a study plan.
+        7. Read the retrieved syllabus or study material carefully.
+        8. If relevant context is available, generate the study plan based ONLY on the retrieved syllabus or uploaded documents.
+        9. If no relevant document is retrieved, create a general study plan using your own knowledge.
+        10. Mention the document source whenever available.
         """,
 
         expected_output="""
@@ -40,5 +45,5 @@ def studyplanner_task(student_question, student_profile, previous_learning):
         The plan should feel practical and easy for a student to follow.
         """,
 
-        agent=studyplanner_agent
+        agent=planner_agent
     )

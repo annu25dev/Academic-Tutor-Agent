@@ -1,6 +1,7 @@
 from crewai import Agent
 from llm import llm
 from .tool import assessment_tools
+from RAG_agent.rag_tool import rag_tool
 
 assessment_agent = Agent(
 

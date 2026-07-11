@@ -2,15 +2,13 @@
 import os
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
-from langchain_groq import ChatGroq
-from langchain_core.prompts import ChatPromptTemplate
+#from langchain_groq import ChatGroq
+#from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
-
-
 load_dotenv()
-groq=os.getenv("GROQ_API_KEY")
-llm=ChatGroq(model="llama-3.3-70b-versatile", temperature=0.2,api_key=groq)
-persistent_directory="Backend\RAG_agent\db\chroma_db"
+#groq=os.getenv("GROQ_API_KEY")
+#llm=ChatGroq(model="llama-3.3-70b-versatile", temperature=0.2,api_key=groq)
+persistent_directory = "RAG_agent/db/chroma_db"
 
 #----------------------------------1. LOAD EMBEDDINGS & VECTOR STORE---------------------------------
 
@@ -29,8 +27,8 @@ print(db._collection.count())
 
 #query=input("Enter your query: ")
 
-def answer_question(query:str):
-    retriever=db.as_retriever(search_kwrags={"k":5})
+def retrieve_context(query:str):
+    retriever=db.as_retriever(search_kwargs={"k":5})
 
     relevant_docs=retriever.invoke(query)
 
@@ -44,28 +42,32 @@ def answer_question(query:str):
 
 #-------------------------------------3. COMBINING WITH LLM------------------------------------------
 
-    prompt=ChatPromptTemplate.from_template("""
-        You are an intelligent academic tutor.
+   # prompt=ChatPromptTemplate.from_template("""
+       # You are an intelligent academic tutor.
 
-        1. Answer the user's question ONLY using the context provided below.
+       #1. Answer the user's question ONLY using the context provided below.
 
-    2. If the answer is not present in the context, say:
-    "I don't have enough information in the provided documents."
+    #2. If the answer is not present in the context, say:
+    #"I don't have enough information in the provided documents."
 
-    3. Context:
-    {context}
+   # 3. Context:
+    #{context}
 
-    4. Question:
-    {question}
+   # 4. Question:
+    #{question}
 
-    Answer:
-    """)
+    #Answer:
+    #""")
 
-    formatted_prompt=prompt.format(context=context, question=query)
+    #formatted_prompt=prompt.format(context=context, question=query)
 
-    response=llm.invoke(formatted_prompt)
+    #response=llm.invoke(formatted_prompt)
 #print(f"\nUser Query:  {query}")
-    return{"answer":response.content,"sources":list(sources)}
+   # return{"answer":response.content,"sources":list(sources)}
+    return {
+       "context":context,
+       "sources":list(sources)
+   }
 #Displaying Results
    
 #print("\n-------ANSWER-------")
