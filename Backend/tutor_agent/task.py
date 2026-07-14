@@ -1,7 +1,7 @@
 from crewai import Task
 from .agent import tutor_agent
 from llm import llm
-
+from Pydantic_models import TutorOutput
 
 def Tutor_task(student_question, student_profile, previous_learning):
 
@@ -43,8 +43,13 @@ then answer using your own knowledge.
 """,
 
         expected_output="""
-A highly personalized learning response that includes:
+Generate the following information:
 
+- topic: The main academic topic discussed in the student's question.
+- response: A complete, personalized learning response.
+
+The response should include the following elements:
+A highly personalized learning response that includes:
 • Greeting using the student's name.
 • Personalized explanation according to learning level.
 • Continuation from previous learning whenever available.
@@ -58,7 +63,8 @@ A highly personalized learning response that includes:
 • Suggested next topic for learning.
 """,
 
-        agent=tutor_agent
+        agent=tutor_agent,
+        output_pydantic=TutorOutput
 
     )
 

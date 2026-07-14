@@ -1,11 +1,10 @@
 from crewai import Task
 from .agent import quiz_agent
+from Pydantic_models import QuizOutput
 
 
 def quiz_task(student_question: str, student_profile: str = "None", previous_learning: str = "None"):
     
-     # output format instruction
-    format_instruction = "Return a raw JSON object with keys: quiz_title, difficulty, and questions array containing question_text, options, correct_answer, and explanation. Do not wrap in markdown blocks."
 
     return Task(
         description=f"""
@@ -24,6 +23,16 @@ def quiz_task(student_question: str, student_profile: str = "None", previous_lea
         - If no relevant context is retrieved, generate quiz questions using your own knowledge.
         - Mention the document source whenever available.
         """,
-        expected_output=format_instruction,
-        agent=quiz_agent
+        expected_output=
+        """
+        Create a personalized 5-question quiz.
+
+        The quiz should:
+        - Have a title.
+        - Have a difficulty level.
+        - Contain 5 questions.
+        - Each question should have options, a correct answer and an explanation.
+        """,
+        agent=quiz_agent,
+        output_pydantic=QuizOutput
     )

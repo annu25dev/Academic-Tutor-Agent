@@ -67,9 +67,27 @@ Select Planner Agent when the student wants:
 • Prepare for exams
 • Organize learning schedule
 
-5. If the student's request contains multiple tasks,
-identify every required agent.Return them in the exact order in which
-the student wants them executed.
+5. If the student's request contains multiple tasks:
+
+        * Split the student's request.
+
+        * Assign each subtask to its correct academic agent.
+
+        * Return one line per agent.
+
+        Example:
+
+        Student:
+
+        Create a quiz on Lunar Eclipse and create an assessment on Solar Eclipse.
+
+        Return:
+
+        Quiz: Create a quiz on Lunar Eclipse.
+
+        Assessment: Create an assessment on Solar Eclipse.
+
+        Never combine multiple subtasks into one.
 
 6. Never answer the student's question.
 
@@ -85,20 +103,43 @@ the student wants them executed.
 
 expected_output="""
 
-Return ONLY the selected academic agent.
+Return one line per selected agent.
+
+Format:
+
+AgentName: Task for that agent
 
 Examples:
 
-Tutor
+Tutor: Explain Machine Learning.
 
-Assessment
+Quiz: Create a quiz on Machine Learning.
 
-Planner
+Assessment: Evaluate the student's answer on Machine Learning.
 
-Tutor → Assessment
+Planner: Create a study plan for Data Structures.
 
-Assessment → Tutor
+If multiple tasks exist:
 
+Tutor: Explain Solar Eclipse.
+
+Quiz: Create a quiz on Lunar Eclipse.
+
+Assessment: Create an assessment on Organic Chemistry.
+
+Planner: Create a study planner for Web Development.
+
+Rules:
+
+1. Keep the task short.
+
+2. Preserve the original topic.
+
+3. Never merge two tasks.
+
+4. Never rewrite one task for another agent.
+
+5. One agent = One task.
 """
 
 ,

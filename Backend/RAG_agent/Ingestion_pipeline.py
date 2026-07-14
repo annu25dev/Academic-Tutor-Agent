@@ -1,5 +1,10 @@
 import shutil
 import os
+
+BASE_DIR= os.path.dirname(os.path.abspath(__file__))
+DOCS_PATH=os.path.join(BASE_DIR,"docs")
+DB_PATH=os.path.join(BASE_DIR,"db","chroma_db")
+
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.document_loaders import (
     TextLoader,
@@ -87,7 +92,7 @@ def split_documents(documents,chunk_size=800,chunk_overlap=0):
 
 #---------------------   -----3. EMBEDDING & STORING IN VECTOR DATABASE----------------------------
 
-def create_vector_store(chunks,persist_directory="RAG_agent/db/chroma_db"):
+def create_vector_store(chunks,persist_directory=DB_PATH):
     #Creating and persisting ChromaDB Vector Store
     print("\n Creating embeddings amd storing in ChromaDB")
 
@@ -110,24 +115,27 @@ def create_vector_store(chunks,persist_directory="RAG_agent/db/chroma_db"):
     return vector_store
 
 #--------------------------------------4. CALLING FUNCTIONS---------------------------------
+def ingest_uploaded_file(file_path):
+    """
+    Takes the uploaded file path from FastAPI,
+    Copies it into RAG_agent/docs,
+    loads all documents,
+    splits them into chunks,
+    and stores them in ChromaDB
+    """
 
-def main():
-    print("Main Function")
- 
-    file_path=input("Enter file path: ").strip().strip('"')
+    #1. Step 1: Copy uploaded file into the folder
+    upload_document(file_path, docs_path=DOCS_PATH)
 
-    #1. Uploading The File
-    upload_document(file_path, docs_path="RAG_agent/docs")
+    #2. Step 2: Load all documents from docs folder
+    documents=load_documents(docs_path=DOCS_PATH)
 
-    #2. Loading The Files
-    documents=load_documents(docs_path="RAG_agent/docs")
-
-    #3. Chunking the files
+    #3. Step 3: Split into chunks
     chunks=split_documents(documents)
 
-    #4. Embedding and storing in Vector DB
-    vector_store=create_vector_store(chunks)
+    #4. Store embeddings in ChromaDB
+    create_vector_store(chunks)
 
-if __name__=="__main__":
-    main()
+
+
 

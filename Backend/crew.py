@@ -1,4 +1,6 @@
 from crewai import Crew, Process
+import pydantic
+from chat_history import ChatHistory
 # Memory
 from Memory_agent.memory_service import StudentMemory
 # Router
@@ -17,17 +19,25 @@ from planner_agent.task import planner_task
 from quiz_agent.agent import quiz_agent
 from quiz_agent.task import quiz_task
 
-
-def run_academic_tutor(student_question: str):
+#Every request will tell who is asking, which session and what is the question
+def run_academic_tutor(student_id: str, session_id: str, student_question: str):
 
     # Load Student Memory
 
-    memory = StudentMemory()
+    memory = StudentMemory(f"{student_id}.json")
+    #Student conversations will be stored at the right place 
+    chat = ChatHistory(student_id)
 
     student_profile = memory.get_profile()
 
     previous_learning = memory.get_learning_history()
-
+    
+    #Every user question will be stored in the chat history of that particular session
+    chat.save_message(
+     session_id=session_id,
+     role="user",
+     content=student_question
+      )
     # Router Task
 
     task = router_task(
@@ -35,8 +45,9 @@ def run_academic_tutor(student_question: str):
         student_profile,
         previous_learning
     )
-
+    # --------------------------
     # Router Crew
+    # --------------------------
 
 
     router_crew = Crew(
@@ -46,34 +57,57 @@ def run_academic_tutor(student_question: str):
         verbose=True
     )
 
-    # Execute Router
+    print("Starting Router...")
 
     router_result = router_crew.kickoff()
 
-    router_decisions = [
-        decision.strip()
-        for decision in str(router_result).split("→")
-    ]
+    print("\nRaw Router Output:")
 
-    print("Router Decisions:")
+    print(router_result)
 
-    for decision in router_decisions:
-        print("-", decision)
+    # --------------------------
+    #Parse Router Output
+    # --------------------------
 
+    router_tasks={}
+
+    for line in str(router_result).split("\n"):
+
+        line = line.strip()
+
+        if not line:
+            continue
+
+        if ":" not in line:
+            continue
+
+        agent_name, task_text = line.split(":",1)
+
+        router_tasks[agent_name.strip()] = task_text.strip()
+
+    print("\nParsed Router Tasks:")
+
+    for agent_name, task_text in router_tasks.items():
+        print(f"- {agent_name} - > {task_text}")
+
+    
+    #--------------------------
+    # Execute Agents
+    #--------------------------
+    
     # Store outputs of all executed agents
 
     results = []
+    
+    for decision, agent_task in router_tasks.items():
+        decision = decision.strip().lower()
 
-    # Execute Every Agent Returned
+        #---------------- Assessment ---------------
 
-    for decision in router_decisions:
-
-        # Assessment
-
-        if decision == "Assessment":
+        if "assessment" in decision:
 
             assessment = assessment_task(
-                student_question=student_question,
+                student_question=agent_task,
                 student_answer="",
                 student_profile=student_profile,
                 previous_learning=previous_learning
@@ -88,12 +122,12 @@ def run_academic_tutor(student_question: str):
 
             results.append(str(assessment_crew.kickoff()))
 
-        # Tutor
+        #-------------- Tutor ---------------
 
-        elif decision == "Tutor":
+        elif "tutor" in decision:
 
             tutor = Tutor_task(
-                student_question=student_question,
+                student_question=agent_task,
                 student_profile=student_profile,
                 previous_learning=previous_learning
             )
@@ -105,14 +139,21 @@ def run_academic_tutor(student_question: str):
                 verbose=True
             )
 
-            results.append(str(tutor_crew.kickoff()))
+            tutor_result = tutor_crew.kickoff()
 
-        # Planner
+            topic = tutor_result.pydantic.topic
 
-        elif decision == "Planner":
+            response = tutor_result.pydantic.response
+            memory.update_learning_history(topic=topic)
+            results.append(response)
+            
+
+        #--------------- Planner -----------------
+
+        elif "planner" in decision:
 
             planner = planner_task(
-                student_question=student_question,
+                student_question=agent_task,
                 student_profile=student_profile,
                 previous_learning=previous_learning
             )
@@ -124,14 +165,25 @@ def run_academic_tutor(student_question: str):
                 verbose=True
             )
 
-            results.append(str(planner_crew.kickoff()))
+            planner_result=planner_crew.kickoff()
+            
+            topic = planner_result.pydantic.topic
 
-        # Quiz
+            response = planner_result.pydantic.response
+            
+            #For storing to memory agent
+            memory.save_plan(topic=topic,
+                              plan=response)
 
-        elif decision == "Quiz":
+            #OUTPUT
+            results.append(response)
+
+        #----------------------Quiz---------------------
+
+        elif "quiz" in decision:
 
             quiz = quiz_task(
-                student_question=student_question,
+                student_question=agent_task,
                 student_profile=student_profile,
                 previous_learning=previous_learning
             )
@@ -143,14 +195,38 @@ def run_academic_tutor(student_question: str):
                 verbose=True
             )
 
-            results.append(str(quiz_crew.kickoff()))
+            quiz_result=quiz_crew.kickoff()
 
-        # Unknown Agent 
+            topic = quiz_result.pydantic.topic
+
+            response = quiz_result.pydantic.response
+
+            memory.save_quiz(
+                topic=topic,
+                quiz=response
+            )
+
+            results.append(response)
+
+
+        # ------------------- Unknown Agent -------------------
 
         else:
 
             results.append(f"Unknown router decision: {decision}")
-
+    
+    # ----------------------------
     # Return Final Combined Output
+    # ----------------------------
 
-    return "\n\n".join(results)
+   
+    final_response = "\n\n".join(results)
+
+    #Assistant response will be stored in the chat history of that particular session
+    chat.save_message(
+            session_id=session_id,
+            role="assistant",
+            content=final_response
+        )
+
+    return final_response

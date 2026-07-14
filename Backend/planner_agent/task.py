@@ -1,5 +1,6 @@
 from crewai import Task
 from .agent import planner_agent
+from Pydantic_models import PlannerOutput
 
 
 def planner_task(student_question, student_profile, previous_learning):
@@ -29,6 +30,7 @@ def planner_task(student_question, student_profile, previous_learning):
         8. If relevant context is available, generate the study plan based ONLY on the retrieved syllabus or uploaded documents.
         9. If no relevant document is retrieved, create a general study plan using your own knowledge.
         10. Mention the document source whenever available.
+        
         """,
 
         expected_output="""
@@ -45,5 +47,6 @@ def planner_task(student_question, student_profile, previous_learning):
         The plan should feel practical and easy for a student to follow.
         """,
 
-        agent=planner_agent
+        agent=planner_agent,
+        output_pydantic=PlannerOutput
     )
