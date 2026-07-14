@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduPilot | Study Planner</title>
+
+<link rel="stylesheet" href="studyplanner.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="planner-container">
+
+
+    <!-- Header -->
+
+    <div class="planner-header">
+
+
+        <a href="dashboard.html" class="back-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Dashboard
+
+        </a>
+
+
+
+        <h1>
+            AI Study Planner
+        </h1>
+
+
+        <p>
+            Create personalized study schedules with EduPilot.
+        </p>
+
+
+    </div>
+
+
+
+
+    <!-- Planner Form -->
+
+
+    <div class="planner-form">
+
+
+
+        <div class="input-group">
+
+
+            <label>
+                Subject
+            </label>
+
+
+            <input 
+            type="text"
+            id="subject"
+            placeholder="Example: Physics">
+
+
+        </div>
+
+
+
+
+        <div class="input-group">
+
+
+            <label>
+                Topic
+            </label>
+
+
+            <input 
+            type="text"
+            id="topic"
+            placeholder="Example: Thermodynamics">
+
+
+        </div>
+
+
+
+
+        <div class="input-group">
+
+
+            <label>
+                Exam Date
+            </label>
+
+
+            <input 
+            type="date"
+            id="examDate">
+
+
+        </div>
+
+
+
+
+
+        <div class="input-group">
+
+
+            <label>
+                Daily Study Hours
+            </label>
+
+
+            <select id="hours">
+
+
+                <option value="1">
+                    1 Hour
+                </option>
+
+
+                <option value="2">
+                    2 Hours
+                </option>
+
+
+                <option value="3">
+                    3 Hours
+                </option>
+
+
+                <option value="4">
+                    4+ Hours
+                </option>
+
+
+            </select>
+
+
+        </div>
+
+
+
+
+        <button id="generateBtn">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            Generate Study Plan
+
+        </button>
+
+
+    </div>
+
+
+
+
+
+
+    <!-- Study Plan Output -->
+
+
+    <div class="plan-section">
+
+
+        <h2>
+            Your Study Plan
+        </h2>
+
+
+
+        <div 
+        class="plan-container"
+        id="planContainer">
+
+
+            <div class="empty-state">
+
+
+                <i class="fa-solid fa-book-open"></i>
+
+
+                <p>
+                    Your personalized plan will appear here.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+<script src="studyplanner.js"></script>
+
+
+</body>
+
+</html>

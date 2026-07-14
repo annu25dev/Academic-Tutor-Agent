@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduPilot | Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <img src="logo.jpg" alt="Logo">
+
+            <div>
+
+                <h2>EduPilot</h2>
+
+                <p>Your AI Study Companion</p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="menu">
+
+            <button class="menu-btn active">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </button>
+
+            <button class="menu-btn"
+            onclick="location.href='notes.html'">
+
+                <i class="fa-solid fa-upload"></i>
+
+                Upload Notes
+
+            </button>
+
+        
+
+            <button class="menu-btn"
+            onclick="location.href='chathistory.html'">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                Chat History
+
+            </button>
+
+        </div>
+
+        <div class="quote-card">
+
+            <img src="quote.jpg" alt="Quote">
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <!-- Greeting -->
+
+        <div class="top-bar">
+
+            <div>
+
+                <h1>Hello, Student 👋</h1>
+
+                <p>What would you like to learn today?</p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Main Grid -->
+
+        <div class="dashboard-grid">
+
+            <!-- Left -->
+
+            <div class="left-panel">
+
+                <!-- Ask Box -->
+
+                <div class="ask-card">
+
+                    <h2>Ask Anything</h2>
+
+                    <div class="input-box">
+
+                        <input
+                        type="text"
+                        id="questionInput"
+                        placeholder="Ask any academic question...">
+
+                        <button id="sendBtn">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AI Response -->
+
+                <div class="response-card">
+
+                    <div class="response-header">
+
+                        <i class="fa-solid fa-person-chalkboard"></i>
+
+                        <h3>AI Teacher</h3>
+
+                    </div>
+
+                    <div
+                    class="response-text"
+                    id="responseText">
+
+                        A Binary Search Tree (BST) is a binary tree in which every node has values greater than all nodes in its left subtree and smaller than all nodes in its right subtree.
+
+                    </div>
+
+                    <div class="response-actions">
+
+                        <i class="fa-regular fa-copy"></i>
+
+                        <i class="fa-regular fa-thumbs-up"></i>
+
+                        <i class="fa-regular fa-bookmark"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Right -->
+
+            <div class="right-panel">
+
+                <!-- Learning Hub -->
+
+                <div class="learning-card">
+
+                    <div class="card-title">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        <h3>Learning Hub</h3>
+
+                    </div>
+
+                    <div class="hub-grid">
+
+                        <a href="quiz.html" class="hub-item">
+
+                            <i class="fa-regular fa-pen-to-square"></i>
+
+                            <span>Quiz Library</span>
+
+                        </a>
+
+                        <a href="studyplanner.html" class="hub-item">
+
+                            <i class="fa-solid fa-calendar-days"></i>
+
+                            <span>Study Planner</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AI Tips -->
+
+                <div class="tips-card">
+
+                    <h3>Today's Study Tip</h3>
+
+                    <p>
+
+                        Break long chapters into small concepts and revise them using quizzes after every study session.
+
+                    </p>
+
+                </div>
+
+
+
+               
+
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+
+</html>

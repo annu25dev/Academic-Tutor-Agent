@@ -3,158 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>AI Academic Tutor </title>
+
+    <title>EduPilot</title>
+
+    <link rel="stylesheet" href="agent.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
+
 <body>
-    <div class="left-sidebar">
-        <div class="logo">
-            <div class="img"></div>
-            <div class="Ai">AI Academic Tutor
-                <div class="describe1">Your Personal study companion</div>
-            </div>
-        </div>
-        <br/>
-        <hr/>
-       <div class="side-main">
-         <div class="first-icon">
-            <i class="fa-brands fa-rocketchat" style="color: rgb(0, 191, 255); font-size: 28px;"></i>
-            <div class="name1">Chat tutor</div>
-        </div>
-        <div class="second-icon">
-            <i class="fa-regular fa-clipboard" style="color: rgb(57, 255, 20); font-size: 28px"></i>
-            <div class="name2">PYQs</div>
-        </div>
-        <div class="third-icon">
-         <i class="fa-regular fa-pen-to-square" style="color: rgb(255, 20, 147); font-size: 28px"></i>
-            <div class="name3">Quizzes</div>
-        </div>
-        <div class="fourth-icon">
-            <i class="fa-regular fa-note-sticky" style="color: rgb(0, 255, 255);font-size: 28px"></i>
-            <div class="name4">Notes</div>
-        </div>
-        <div class="fifth-icon">
-           <i class="fa-regular fa-calendar-days" style="color: rgb(186, 85, 211);font-size: 28px"></i>
-            <div class="name5">Study Planner</div>
-        </div>
-       </div>
-       <br/>
-       <br/>
-       <hr/>
-       <div class="slg">
-        <div class="content"></div>
-       </div>
- </div>
- <div class="right-sidebar1">
-    <div class="topic-dn">
-        <div class="logo2">
-            <i class="fa-solid fa-clock-rotate-left" style="color: rgb(170, 110, 255);"></i>
-        <div class="rec">Recent Searched Topics</div>
-        </div>
-        <div class="search-list">
-        <div class="first-search">Binary Search Tree
-            <div class="time1">Just now</div>
-        </div>
-        <div class="sec-search">Time Complexity
-            <div class="time2">2 hours ago</div>
-        </div>
-        <div class="third-search">Hash Tables
-            <div class="time3">yesterday</div>
-        </div>
-        <div class="fourth-search">Graph Traversal
-            <div class="time4">2 days ago</div>
-        </div>
-        <div class="fifth-search">Dynamic Programming
-            <div class="time5">3 days ago</div>
-        </div>
-        </div>
-        <div class="last-opt">View All</div>
-    </div>
- </div>
-<div class="right-sidebar2">
-    <div class="pro">
-        <i class="fa-solid fa-chart-simple" style="color: rgb(57, 255, 20);"></i>
-        <div class="pro-text">Your Progress</div>
-    </div>
-   <div class="pro-result">Overall Progress
-    <div class="per">62%</div>
-   </div>
-   <div class="pro-bar">
-    <div class="pro-fill"></div>
-   </div>
-   <div class="prog-res-num">
-    <div class="num1">12</div>
-     <div class="num2">25</div>
-      <div class="num2">8</div>
-   </div>
-   <div class="prog-res">
-    <div class="res1">Topics Studied</div>
-     <div class="res2">Quizzes Solved</div>
-      <div class="res1">Study Days</div>
-   </div>
-</div>
-<div class="main">
-    <div class="main-navbar">
-        <div class="greet">Hello, Student!👋</div>
-        <div class="greet-2">What would you like to learn today
-            <i class="fa-solid fa-question" style="color: rgb(255, 20, 147);font-size: 20px;"></i>
-        </div>
-      </div>
-</div>
-<div class="find">
-    <input type="text" placeholder="Ask any question..." class="toolbar" >
- <div class="send">
-   <i class="fa-regular fa-paper-plane" style="color: rgb(255, 255, 255); font-size: 20px;"></i>
- </div>
-</div>
-<div class="agents">
-    <div class="first-age">
-        <div class="box1">
-            <div class="imag1"><i class="fa-solid fa-person-chalkboard" style="color: rgb(255, 212, 59);font-size: 19px;"></i> </div>
-        <div class="first-name">Teacher Agent</div>
-        </div>
-        <div class="ex1">Explains concepts in simple way</div>
-    
-    </div>
-      <div class="sec-age">
-      <div class="box2">
-          <div class="imag2"> <i class="fa-regular fa-pen-to-square" style="color: rgb(255, 20, 147); font-size: 19px"></i></div>
-        <div class="sec-name">Quiz Agent</div>
-      </div>
-        <div class="ex2">Generates practice questions</div>
+
+<div class="landing-page">
+
+<div class="blur1"></div>
+<div class="blur2"></div>
+
+<div class="container">
+
+    <div class="logo">
+
+        <img src="logo.jpg" alt="EduPilot Logo">
+
+        <h1>Edu<span>Pilot</span></h1>
+
+        <h3>Your AI Study Companion</h3>
 
     </div>
-    <div class="third-age">
-       <div class="box3">
-          <div class="imag3"><i class="fa-regular fa-clipboard" style="color: rgb(57, 255, 20); font-size: 19px"></i></div>
-        <div class="third-name">PYQs Agent</div>
-       </div>
-        <div class="ex3">Generates past year questions</div>
-        
+
+    <div class="description">
+
+        EduPilot is an intelligent learning platform that transforms the way students learn through personalized, AI-driven education. Powered by CrewAI multi-agent workflows and Retrieval-Augmented Generation (RAG), EduPilot delivers context-aware assistance tailored to every student's learning journey.
+
+Whether you're understanding complex concepts, preparing for exams, or planning your studies, EduPilot brings together specialized AI agents to make learning smarter, faster, and more effective.
     </div>
-    <div class="fourth-age">
-         <div class="box4">
-            <div class="imag4"><i class="fa-regular fa-calendar-days" style="color: rgb(186, 85, 211);font-size: 19px"></i> </div>
-        <div class="fourth-name">Study Planner Agent</div>
-         </div>
-        <div class="ex4">creates personalized study plans</div>
-       </div>
-</div>
-<div class="main-cen">
-     <div class="box1">
-            <div class="imag1"><i class="fa-solid fa-person-chalkboard" style="color: rgb(255, 212, 59);font-size: 25px;"></i> </div>
-        <div class="first-name">Teacher Agent</div>
-        <div class="batch">AI</div>
-        </div>   
-        <div class="concept">
-            A binary search tree(BST) is a binary tree data structure in which each node has a key greater than all the keys in its left subtree and less than all the keys in its right subtree.
+<section class="agents">
+
+        <h2>Meet Your AI Agents</h2>
+
+        <div class="agent-grid">
+
+            <div class="agent-card">
+
+                <i class="fa-solid fa-person-chalkboard"></i>
+
+                <h4>Tutor Agent</h4>
+
+                <p>Explains difficult concepts in a simple and interactive way.</p>
+
+            </div>
+
+            <div class="agent-card">
+
+                <i class="fa-solid fa-file-circle-question"></i>
+
+                <h4>Quiz Agent</h4>
+
+                <p>Creates personalized quizzes for practice and revision.</p>
+
+            </div>
+
+            <div class="agent-card">
+
+                <i class="fa-solid fa-book-open-reader"></i>
+
+                <h4>RAG Tool</h4>
+
+                <p>Answers questions using your uploaded notes and documents.</p>
+
+            </div>
+
+            <div class="agent-card">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <h4>Study Planner</h4>
+
+                <p>Creates personalized study plans to help you stay on track.</p>
+
+            </div>
+
+            <div class="agent-card">
+
+                <i class="fa-solid fa-tasks"></i>
+
+                <h4>Assessment Agent</h4>
+
+                <p>Evaluates your understanding and provides detailed feedback.</p>
+
+            </div>
+
         </div>
-        <div class="review">
-       <div class="copy"><i class="fa-regular fa-copy" style="color: rgb(156, 163, 175);"></i></div>
-    <div class="like"><i class="fa-regular fa-thumbs-up" style="color: rgb(156, 163, 175);"></i></div>
-       <div class="dislike"><i class="fa-regular fa-thumbs-down" style="color: rgb(156, 163, 175);"></i></div>
+
+    </section>
+    <div class="buttons">
+
+        <a href="form.html" class="btn primary">
+
+            <i class="fa-solid fa-user"></i>
+
+            Create Your Profile
+
+        </a>
+
+        <button id="startBtn" class="btn secondary">
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+            Let's Get Started
+
+        </button>
+
     </div>
+
+
+    <footer>
+
+        © 2026 EduPilot • Your AI Study Companion
+
+    </footer>
+
 </div>
+
+</div>
+
+<script>
+    document.getElementById('startBtn').addEventListener('click', function() {
+        const profileData = localStorage.getItem('userProfile');
+        
+        if (!profileData) {
+            alert('Please fill out your profile first to continue.');
+            return false;
+        }
+        
+        window.location.href = 'dashboard.html';
+    });
+</script>
+
 </body>
 </html>

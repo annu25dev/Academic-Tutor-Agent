@@ -288,13 +288,13 @@ left:17px;
 font-size: 19px;
 }
 .num1{
-  color: rgb(57,255,20);
+  color: rgb(231, 152, 222);
 }
 .num2{
-  color:rgb(0, 255, 255);
+  color:rgb(237, 180, 225);
 }
 .num3{
-  color:rgb(186, 85, 211);
+  color:rgb(239, 162, 214);
 }
 .prog-res{
   display: flex;

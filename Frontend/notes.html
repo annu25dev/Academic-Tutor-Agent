@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduPilot | Upload Notes</title>
+
+    <link rel="stylesheet" href="notes.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <img src="logo.jpg" alt="EduPilot Logo">
+
+            <div>
+                <h2>EduPilot</h2>
+                <p>Your AI Study Companion</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <nav class="menu">
+
+            <button class="menu-btn"
+                onclick="window.location.href='dashboard.html'">
+
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+
+            </button>
+
+            <button class="menu-btn active">
+
+                <i class="fa-solid fa-upload"></i>
+                Upload Notes
+
+            </button>
+
+            <button class="menu-btn"
+                onclick="window.location.href='chathistory.html'">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Chat History
+
+            </button>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Section -->
+
+    <main class="main-content">
+
+        <h1>Upload Notes</h1>
+
+        <p class="subtitle">
+            Upload your study notes and let EduPilot generate summaries,
+            quizzes and personalized learning.
+        </p>
+
+        <div class="page-layout">
+
+            <!-- Left Side -->
+
+            <section class="upload-section">
+
+                <div class="upload-box">
+
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+
+                    <h2>Drag & Drop Files Here</h2>
+
+                    <p>or</p>
+
+                    <input
+                        type="file"
+                        id="fileUpload"
+                        accept=".pdf,.doc,.docx,.txt">
+
+                    <label for="fileUpload"
+                        class="choose-btn">
+
+                        Choose File
+
+                    </label>
+
+                    <p id="selectedFile">
+                        No file selected
+                    </p>
+
+                </div>
+                                <!-- Upload Details Form -->
+
+                <div class="upload-form">
+
+                    <div class="input-group">
+
+                        <label>Subject</label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="Example: Data Structures">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>Topic</label>
+
+                        <input
+                            type="text"
+                            id="topic"
+                            placeholder="Example: Binary Search Trees">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>Semester / Class</label>
+
+                        <select id="semester">
+
+                            <option value="">Select</option>
+
+                            <option>Semester 1</option>
+                            <option>Semester 2</option>
+                            <option>Semester 3</option>
+                            <option>Semester 4</option>
+                            <option>Semester 5</option>
+                            <option>Semester 6</option>
+                            <option>Semester 7</option>
+                            <option>Semester 8</option>
+
+                            <option>Class 9</option>
+                            <option>Class 10</option>
+                            <option>Class 11</option>
+                            <option>Class 12</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        
+                    </div>
+
+                    <button
+                        class="upload-btn"
+                        id="uploadButton">
+
+                        <i class="fa-solid fa-upload"></i>
+
+                        Upload Notes
+
+                    </button>
+
+                </div>
+
+            </section>
+                        <!-- Right Column -->
+
+            <aside class="right-panel">
+
+                <!-- Learning Hub -->
+
+                <div class="learning-hub">
+
+                    <div class="hub-header">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        <h2>Learning Hub</h2>
+
+                    </div>
+
+                    <div class="hub-grid">
+
+                        <!-- Quiz Library -->
+
+                        <a href="quiz.html" class="hub-card">
+
+                            <i class="fa-regular fa-pen-to-square"></i>
+
+                            <span>Quiz Library</span>
+
+                        </a>
+
+                        <!-- Study Planner -->
+
+                        <a href="studyplanner.html" class="hub-card">
+
+                            <i class="fa-regular fa-calendar-days"></i>
+
+                            <span>Study Planner</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Recent Uploads -->
+
+                <div class="recent-files">
+
+                    <h2>Recent Uploads</h2>
+
+                    <div id="recentUploads">
+
+                        <div class="file-card">
+
+                            <i class="fa-solid fa-file-pdf"></i>
+
+                            <span>Operating Systems.pdf</span>
+
+                        </div>
+
+                        <div class="file-card">
+
+                            <i class="fa-solid fa-file-pdf"></i>
+
+                            <span>DBMS Notes.pdf</span>
+
+                        </div>
+
+                        <div class="file-card">
+
+                            <i class="fa-solid fa-file-pdf"></i>
+
+                            <span>Computer Networks.pdf</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+            </main>
+
+</div>
+
+<!-- JavaScript -->
+
+<script src="notes.js"></script>
+
+</body>
+</html>

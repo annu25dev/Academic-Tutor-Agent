@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduPilot | Chat History</title>
+
+    <link rel="stylesheet" href="chathistory.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <img src="logo.jpg" alt="EduPilot Logo">
+
+
+            <div>
+
+                <h2>EduPilot</h2>
+
+                <p>Your AI Study Companion</p>
+
+            </div>
+
+
+        </div>
+
+
+        <hr>
+
+
+
+        <div class="menu">
+
+
+            <button class="menu-btn"
+            onclick="location.href='dashboard.html'">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </button>
+
+
+
+            <button class="menu-btn"
+            onclick="location.href='notes.html'">
+
+                <i class="fa-solid fa-upload"></i>
+
+                Upload Notes
+
+            </button>
+
+
+
+            <button class="menu-btn active">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                Chat History
+
+            </button>
+
+
+
+        </div>
+
+
+    </aside>
+
+
+
+
+
+    <!-- ================= MAIN SECTION ================= -->
+
+
+    <main class="main">
+
+
+
+        <div class="top-bar">
+
+
+            <h1>
+                Chat History
+            </h1>
+
+
+            <p>
+                Review your previous conversations with EduPilot.
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <!-- History Section -->
+
+
+        <section class="history-section">
+
+
+
+            <div class="history-container" id="historyContainer">
+
+
+                <!-- 
+                    Chat history cards will be inserted here
+                    dynamically using JavaScript
+                -->
+
+
+                <div class="history-card">
+
+
+                    <i class="fa-solid fa-comments"></i>
+
+
+                    <div>
+
+
+                        <h3>
+                            Binary Search Trees
+                        </h3>
+
+
+                        <p>
+                            Yesterday • 8:45 PM
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <div class="history-card">
+
+
+                    <i class="fa-solid fa-comments"></i>
+
+
+                    <div>
+
+
+                        <h3>
+                            Operating Systems Notes
+                        </h3>
+
+
+                        <p>
+                            2 Days Ago
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <div class="history-card">
+
+
+                    <i class="fa-solid fa-comments"></i>
+
+
+                    <div>
+
+
+                        <h3>
+                            Dynamic Programming
+                        </h3>
+
+
+                        <p>
+                            Last Week
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <div class="history-card">
+
+
+                    <i class="fa-solid fa-comments"></i>
+
+
+                    <div>
+
+
+                        <h3>
+                            Computer Networks
+                        </h3>
+
+
+                        <p>
+                            Last Week
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <div class="history-card">
+
+
+                    <i class="fa-solid fa-comments"></i>
+
+
+                    <div>
+
+
+                        <h3>
+                            DBMS Revision
+                        </h3>
+
+
+                        <p>
+                            Last Month
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+
+    </main>
+
+
+
+</div>
+
+
+
+
+<script src="chathistory.js"></script>
+
+
+
+</body>
+
+</html>

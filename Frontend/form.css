@@ -1,0 +1,310 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+body{
+    background:#020617;
+    color:#f8fafc;
+}
+
+/* ================= Container ================= */
+
+.form-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px 20px;
+}
+
+.form-card{
+    width:100%;
+    max-width:950px;
+    background:#0a0f1f;
+    border:2px solid #2a3246;
+    border-radius:22px;
+    padding:45px;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+/* ================= Header ================= */
+
+.header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.logo-circle{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#8B5CF6,#D183C9);
+    margin-bottom:20px;
+}
+
+.logo-circle i{
+    font-size:40px;
+    color:white;
+}
+
+.header h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.header p{
+    color:#94a3b8;
+    font-size:16px;
+}
+
+/* ================= Headings ================= */
+
+h2{
+    color:#D183C9;
+    font-size:22px;
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+hr{
+    border:none;
+    height:1px;
+    background:#2a3246;
+    margin:35px 0;
+}
+
+/* ================= Layout ================= */
+
+.row{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:22px;
+}
+
+.input-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:white;
+}
+
+/* ================= Inputs ================= */
+
+.input-group input,
+.input-group select,
+textarea{
+
+    width:100%;
+    padding:14px 16px;
+    background:#111827;
+    border:2px solid #2a3246;
+    border-radius:12px;
+    color:white;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+}
+
+.input-group input::placeholder,
+textarea::placeholder{
+    color:#94a3b8;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+textarea:focus{
+
+    border-color:#D183C9;
+    box-shadow:0 0 12px rgba(209,131,201,.25);
+
+}
+
+textarea{
+    resize:none;
+    min-height:120px;
+}
+
+/* ================= Radio Buttons ================= */
+
+.radio-group{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.radio-group label{
+
+    background:#111827;
+    border:2px solid #2a3246;
+    border-radius:30px;
+    padding:12px 18px;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+.radio-group label:hover{
+
+    border-color:#D183C9;
+    background:#151d33;
+
+}
+
+.radio-group input{
+    accent-color:#D183C9;
+}
+
+/* ================= Slider ================= */
+
+.slider-container{
+    margin-top:10px;
+}
+
+.level-labels{
+
+    display:flex;
+    justify-content:space-between;
+    color:#94a3b8;
+    font-size:14px;
+    margin-bottom:15px;
+
+}
+
+#level{
+
+    width:100%;
+    appearance:none;
+    height:8px;
+    border-radius:50px;
+    background:linear-gradient(90deg,#8B5CF6,#D183C9);
+    outline:none;
+
+}
+
+#level::-webkit-slider-thumb{
+
+    appearance:none;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:white;
+    border:4px solid #D183C9;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+#level::-webkit-slider-thumb:hover{
+
+    transform:scale(1.15);
+
+}
+
+.level-display{
+
+    text-align:center;
+    margin-top:18px;
+
+}
+
+#levelText{
+
+    display:inline-block;
+    padding:10px 22px;
+    border-radius:25px;
+    background:#111827;
+    border:2px solid #D183C9;
+    color:#D183C9;
+    font-weight:600;
+    font-size:15px;
+
+}
+
+/* ================= Save Button ================= */
+
+.save-btn{
+
+    width:100%;
+    margin-top:35px;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#8B5CF6,#D183C9);
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.save-btn:hover{
+
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(209,131,201,.35);
+
+}
+
+.save-btn i{
+    margin-right:10px;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+.form-card{
+
+    padding:25px;
+
+}
+
+.row{
+
+    grid-template-columns:1fr;
+
+}
+
+.radio-group{
+
+    flex-direction:column;
+
+}
+
+.header h1{
+
+    font-size:30px;
+
+}
+
+.logo-circle{
+
+    width:75px;
+    height:75px;
+
+}
+
+.logo-circle i{
+
+    font-size:32px;
+
+}
+
+}

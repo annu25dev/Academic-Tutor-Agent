@@ -1,0 +1,415 @@
+/* ==========================
+   Global Reset
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+body{
+
+    background:#020617;
+    color:white;
+
+}
+
+
+
+.container{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+
+
+/* ==========================
+   Sidebar
+========================== */
+
+
+.sidebar{
+
+    width:260px;
+    background:#0a0f1f;
+    border-right:2px solid #2a3246;
+
+    padding:25px;
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.logo img{
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+
+
+.logo h2{
+
+    color:white;
+    font-size:24px;
+
+}
+
+
+
+.logo p{
+
+    color:#94a3b8;
+    font-size:12px;
+
+}
+
+
+
+hr{
+
+    border:none;
+    border-top:1px solid #2a3246;
+
+    margin:20px 0;
+
+}
+
+
+
+/* ==========================
+   Sidebar Menu
+========================== */
+
+
+.menu{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+.menu-btn{
+
+    width:100%;
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 18px;
+
+    background:#0a0f1f;
+
+    color:#94a3b8;
+
+    border:2px solid #2a3246;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:0.3s;
+
+}
+
+
+
+.menu-btn i{
+
+    color:#D183C9;
+
+    font-size:18px;
+
+}
+
+
+
+.menu-btn:hover{
+
+    background:#151d33;
+
+    color:white;
+
+    border-color:#D183C9;
+
+    transform:translateX(5px);
+
+}
+
+
+
+.menu-btn.active{
+
+    background:#D183C9;
+
+    color:white;
+
+    border-color:#D183C9;
+
+}
+
+
+
+.menu-btn.active i{
+
+    color:white;
+
+}
+
+
+
+/* ==========================
+   Main Section
+========================== */
+
+
+.main{
+
+    flex:1;
+
+    padding:40px;
+
+}
+
+
+
+.top-bar{
+
+    margin-bottom:35px;
+
+}
+
+
+
+.top-bar h1{
+
+    font-size:36px;
+
+    margin-bottom:8px;
+
+    color:white;
+
+}
+
+
+
+.top-bar p{
+
+    color:#94a3b8;
+
+    font-size:17px;
+
+}
+
+
+
+/* ==========================
+   Chat History
+========================== */
+
+
+.history-section{
+
+    width:100%;
+
+}
+
+
+
+.history-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+/* Chat Cards */
+
+
+.history-card{
+
+    background:#0a0f1f;
+
+    border:2px solid #2a3246;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+.history-card:hover{
+
+    border-color:#D183C9;
+
+    transform:translateX(8px);
+
+    background:#111827;
+
+}
+
+
+
+.history-card i{
+
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#111827;
+
+    color:#D183C9;
+
+    font-size:22px;
+
+}
+
+
+
+.history-card h3{
+
+    color:white;
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.history-card p{
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+}
+
+
+
+/* ==========================
+   Loading State
+========================== */
+
+
+.loading{
+
+    color:#94a3b8;
+
+    font-size:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.loading i{
+
+    color:#D183C9;
+
+}
+
+
+
+/* ==========================
+   Responsive
+========================== */
+
+
+@media(max-width:800px){
+
+
+    .container{
+
+        flex-direction:column;
+
+    }
+
+
+
+    .sidebar{
+
+        width:100%;
+
+    }
+
+
+
+    .main{
+
+        padding:20px;
+
+    }
+
+
+    .top-bar h1{
+
+        font-size:30px;
+
+    }
+
+
+}
