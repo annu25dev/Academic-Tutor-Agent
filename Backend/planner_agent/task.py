@@ -27,9 +27,10 @@ def planner_task(student_question, student_profile, previous_learning):
         5. Make sure the plan is achievable and motivating for the student.
         6. ALWAYS use the Academic RAG Tool first before creating a study plan.
         7. Read the retrieved syllabus or study material carefully.
-        8. If relevant context is available, generate the study plan based ONLY on the retrieved syllabus or uploaded documents.
-        9. If no relevant document is retrieved, create a general study plan using your own knowledge.
-        10. Mention the document source whenever available.
+        8. If relevant context is retrieved, generate the study plan using ONLY the document(s) that are directly relevant to the student's current request.
+        9. Ignore any retrieved document that is unrelated or only partially related to the student's question, even if it is returned by the RAG tool. Do not mix information from multiple documents unless they discuss the same topic.
+        10. If multiple documents are retrieved, first determine which document best matches the student's query, and base the study plan only on that document.
+        11. Mention the document source whenever available.
         
         """,
 

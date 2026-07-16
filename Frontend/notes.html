@@ -7,7 +7,7 @@
 
     <title>EduPilot | Upload Notes</title>
 
-    <link rel="stylesheet" href="notes.css">
+    <link rel="stylesheet" href="/static/notes.css">
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -23,7 +23,7 @@
 
         <div class="logo">
 
-            <img src="logo.jpg" alt="EduPilot Logo">
+            <img src="/static/logo.jpg" alt="EduPilot Logo">
 
             <div>
                 <h2>EduPilot</h2>
@@ -37,7 +37,7 @@
         <nav class="menu">
 
             <button class="menu-btn"
-                onclick="window.location.href='dashboard.html'">
+                onclick="window.location.href='/dashboard'">
 
                 <i class="fa-solid fa-house"></i>
                 Dashboard
@@ -52,7 +52,7 @@
             </button>
 
             <button class="menu-btn"
-                onclick="window.location.href='chathistory.html'">
+                onclick="window.location.href='/chathistory'">
 
                 <i class="fa-solid fa-clock-rotate-left"></i>
                 Chat History
@@ -195,7 +195,7 @@
 
                         <!-- Quiz Library -->
 
-                        <a href="quiz.html" class="hub-card">
+                        <a href="/quiz" class="hub-card">
 
                             <i class="fa-regular fa-pen-to-square"></i>
 
@@ -205,7 +205,7 @@
 
                         <!-- Study Planner -->
 
-                        <a href="studyplanner.html" class="hub-card">
+                        <a href="/studyplanner" class="hub-card">
 
                             <i class="fa-regular fa-calendar-days"></i>
 
@@ -262,7 +262,7 @@
 
 <!-- JavaScript -->
 
-<script src="notes.js"></script>
+<script src="/static/notes.js"></script>
 
 </body>
 </html>

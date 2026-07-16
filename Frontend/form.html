@@ -7,7 +7,7 @@
 
     <title>EduPilot | Student Profile</title>
 
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="/static/form.css">
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -270,74 +270,7 @@
 
 </div>
 
-<script>
-    document.getElementById('profileForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get all form inputs
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const semester = document.getElementById('semester').value;
-        const goal = document.getElementById('goal').value;
-        const style = document.querySelector('input[name="style"]:checked');
-        const subjects = document.getElementById('subjects').value.trim();
-        
-        // Validate required fields
-        if (!name) {
-            alert('Please enter your full name');
-            return;
-        }
-        
-        if (!email) {
-            alert('Please enter your email address');
-            return;
-        }
-        
-        // Basic email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address');
-            return;
-        }
-        
-        if (!semester) {
-            alert('Please select your semester or class');
-            return;
-        }
-        
-        if (!goal) {
-            alert('Please select your academic goal');
-            return;
-        }
-        
-        if (!style) {
-            alert('Please select your learning style');
-            return;
-        }
-        
-        if (!subjects) {
-            alert('Please enter the subjects you need help with');
-            return;
-        }
-        
-        // Collect form data
-        const formData = new FormData(this);
-        const profileData = Object.fromEntries(formData);
-        
-        // Save to localStorage
-        localStorage.setItem('userProfile', JSON.stringify(profileData));
-        
-        // Show success message and redirect
-        alert('Profile saved successfully!');
-        window.location.href = 'dashboard.html';
-    });
-    
-    // Update level display when slider changes
-    document.getElementById('level').addEventListener('change', function() {
-        const levels = ['Beginner', 'Intermediate', 'Advanced'];
-        document.getElementById('levelText').textContent = levels[this.value - 1];
-    });
-</script>
+<script src="/static/form.js"></script>
 
 </body>
 

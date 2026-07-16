@@ -18,54 +18,104 @@ levelSlider.addEventListener("input", function () {
 
 const profileForm = document.getElementById("profileForm");
 
-profileForm.addEventListener("submit", function(event) {
+profileForm.addEventListener("submit", async function(event) {
 
-    event.preventDefault(); // prevents page refresh
+    event.preventDefault();
 
-    // Collect form data
     const profileData = {
 
         name: document.getElementById("name").value,
 
-        email: document.getElementById("email").value,
+        school: "",
+
+        stream: "",
 
         college: document.getElementById("college").value,
 
-        course: document.getElementById("course").value,
+        college_degree: document.getElementById("course").value,
 
-        semester: document.getElementById("semester").value,
+        specification: document.getElementById("subjects").value,
 
-        goal: document.getElementById("goal").value,
+        learning_level: levels[levelSlider.value],
 
-        learningStyle: document.querySelector(
-            'input[name="style"]:checked'
-        )?.value || "Not selected",
+        class_name: "",
 
-        subjects: document.getElementById("subjects").value,
-
-        learningLevel: levels[levelSlider.value],
-
-        about: document.getElementById("about").value
+        year: document.getElementById("semester").value
     };
 
+    try{
 
-    // Display data in console
-    console.log("Student Profile:", profileData);
+        const response = await fetch("http://127.0.0.1:8000/api/register",{
 
+            method:"POST",
 
-    // Save temporarily in browser storage
-    localStorage.setItem(
-        "studentProfile",
-        JSON.stringify(profileData)
-    );
+            headers:{
+                "Content-Type":"application/json"
+            },
 
+            body:JSON.stringify(profileData)
 
-    // Success message
-    alert("Profile saved successfully! EduPilot will personalize your learning experience.");
+        });
 
+        const result = await response.json();
 
-    // Optional: move to next page
-    // window.location.href = "dashboard.html";
+        console.log(result);
+
+        if(result.status==="success"){
+
+          // Save student id
+localStorage.setItem(
+    "student_id",
+    result.student_id
+);
+
+// Save profile
+localStorage.setItem(
+    "studentProfile",
+    JSON.stringify(profileData)
+);
+
+// =======================
+// Create first chat session
+// =======================
+
+const chatResponse = await fetch(
+    `http://127.0.0.1:8000/api/new-chat?student_id=${result.student_id}`,
+    {
+        method: "POST"
+    }
+);
+
+const chatResult = await chatResponse.json();
+
+console.log(chatResult);
+
+// Save session id
+localStorage.setItem(
+    "session_id",
+    chatResult.session_id
+);
+
+alert("Registration Successful!");
+
+window.location.href = "/dashboard";
+        }
+
+        else{
+
+            alert("Registration Failed");
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert("Cannot connect to backend.");
+
+    }
 
 });
 

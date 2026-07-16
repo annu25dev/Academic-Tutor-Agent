@@ -8,26 +8,20 @@
 
 <title>EduPilot | Study Planner</title>
 
-<link rel="stylesheet" href="studyplanner.css">
+<link rel="stylesheet" href="/static/studyplanner.css">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
-
 <body>
-
 
 <div class="planner-container">
 
-
-    <!-- Header -->
-
     <div class="planner-header">
 
-
-        <a href="dashboard.html" class="back-btn">
+        <a href="/dashboard" class="back-btn">
 
             <i class="fa-solid fa-arrow-left"></i>
 
@@ -35,187 +29,164 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         </a>
 
-
-
-        <h1>
-            AI Study Planner
-        </h1>
-
+        <h1>AI Study Planner</h1>
 
         <p>
-            Create personalized study schedules with EduPilot.
+            EduPilot automatically creates your personalized study schedule
+            based on your saved learning history.
         </p>
 
-
     </div>
 
 
+    <div class="planner-layout">
 
+        <!-- LEFT -->
 
-    <!-- Planner Form -->
+        <div class="planner-form">
 
+            <div class="planner-info">
 
-    <div class="planner-form">
+                <i class="fa-solid fa-robot"></i>
 
+                <div>
 
+                    <h2>AI Planner</h2>
 
-        <div class="input-group">
+                    <p>
+                        No need to select subject or topic.
+                        EduPilot analyses your learning history and
+                        automatically prepares the best study schedule.
+                    </p>
 
-
-            <label>
-                Subject
-            </label>
-
-
-            <input 
-            type="text"
-            id="subject"
-            placeholder="Example: Physics">
-
-
-        </div>
-
-
-
-
-        <div class="input-group">
-
-
-            <label>
-                Topic
-            </label>
-
-
-            <input 
-            type="text"
-            id="topic"
-            placeholder="Example: Thermodynamics">
-
-
-        </div>
-
-
-
-
-        <div class="input-group">
-
-
-            <label>
-                Exam Date
-            </label>
-
-
-            <input 
-            type="date"
-            id="examDate">
-
-
-        </div>
-
-
-
-
-
-        <div class="input-group">
-
-
-            <label>
-                Daily Study Hours
-            </label>
-
-
-            <select id="hours">
-
-
-                <option value="1">
-                    1 Hour
-                </option>
-
-
-                <option value="2">
-                    2 Hours
-                </option>
-
-
-                <option value="3">
-                    3 Hours
-                </option>
-
-
-                <option value="4">
-                    4+ Hours
-                </option>
-
-
-            </select>
-
-
-        </div>
-
-
-
-
-        <button id="generateBtn">
-
-            <i class="fa-solid fa-calendar-days"></i>
-
-            Generate Study Plan
-
-        </button>
-
-
-    </div>
-
-
-
-
-
-
-    <!-- Study Plan Output -->
-
-
-    <div class="plan-section">
-
-
-        <h2>
-            Your Study Plan
-        </h2>
-
-
-
-        <div 
-        class="plan-container"
-        id="planContainer">
-
-
-            <div class="empty-state">
-
-
-                <i class="fa-solid fa-book-open"></i>
-
-
-                <p>
-                    Your personalized plan will appear here.
-                </p>
-
+                </div>
 
             </div>
 
 
+            <div class="input-group">
+
+                <label>Exam Date</label>
+
+                <input
+                type="date"
+                id="examDate">
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Daily Study Hours</label>
+
+                <select id="hours">
+
+                    <option value="1">1 Hour</option>
+                    <option value="2">2 Hours</option>
+                    <option value="3">3 Hours</option>
+                    <option value="4">4 Hours</option>
+                    <option value="5">5+ Hours</option>
+
+                </select>
+
+            </div>
+
+
+            <button id="generateBtn">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                Generate AI Study Plan
+
+            </button>
+
         </div>
 
+
+        <!-- RIGHT -->
+
+        <div class="planner-preview">
+
+            <h2>Planner Features</h2>
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <div>
+
+                    <h3>Learning History</h3>
+
+                    <p>
+                        Uses your previous topics automatically.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-list-check"></i>
+
+                <div>
+
+                    <h3>Revision Schedule</h3>
+
+                    <p>
+                        Includes revision sessions and practice tasks.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <div>
+
+                    <h3>Time Management</h3>
+
+                    <p>
+                        Optimized according to your available study hours.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
 
+    <div class="plan-section">
 
+        <h2>Your Study Plan</h2>
+
+        <div
+        class="plan-container"
+        id="planContainer">
+
+            <div class="empty-state">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                <p>
+                    Your AI-generated study plan will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
-
-
-<script src="studyplanner.js"></script>
-
+<script src="/static/studyplanner.js"></script>
 
 </body>
 

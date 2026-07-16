@@ -8,7 +8,7 @@
 
     <title>EduPilot | Dashboard</title>
 
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/static/dashboard.css">
 
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -25,7 +25,7 @@
 
         <div class="logo">
 
-            <img src="logo.jpg" alt="Logo">
+            <img src="/static/logo.jpg" alt="Logo">
 
             <div>
 
@@ -50,7 +50,7 @@
             </button>
 
             <button class="menu-btn"
-            onclick="location.href='notes.html'">
+            onclick="location.href='/notes'">
 
                 <i class="fa-solid fa-upload"></i>
 
@@ -61,7 +61,7 @@
         
 
             <button class="menu-btn"
-            onclick="location.href='chathistory.html'">
+            onclick="location.href='/chathistory'">
 
                 <i class="fa-solid fa-clock-rotate-left"></i>
 
@@ -73,7 +73,7 @@
 
         <div class="quote-card">
 
-            <img src="quote.jpg" alt="Quote">
+            <img src="/static/quote.jpg" alt="Quote">
 
         </div>
 
@@ -150,7 +150,7 @@
                     class="response-text"
                     id="responseText">
 
-                        A Binary Search Tree (BST) is a binary tree in which every node has values greater than all nodes in its left subtree and smaller than all nodes in its right subtree.
+                Welcome to EduPilot! Enter your question above and I'll provide clear explanations, examples, and step-by-step solutions tailored to your learning level.
 
                     </div>
 
@@ -188,7 +188,7 @@
 
                     <div class="hub-grid">
 
-                        <a href="quiz.html" class="hub-item">
+                        <a href="/quiz" class="hub-item">
 
                             <i class="fa-regular fa-pen-to-square"></i>
 
@@ -196,7 +196,7 @@
 
                         </a>
 
-                        <a href="studyplanner.html" class="hub-item">
+                        <a href="/studyplanner" class="hub-item">
 
                             <i class="fa-solid fa-calendar-days"></i>
 
@@ -210,19 +210,7 @@
 
 
 
-                <!-- AI Tips -->
-
-                <div class="tips-card">
-
-                    <h3>Today's Study Tip</h3>
-
-                    <p>
-
-                        Break long chapters into small concepts and revise them using quizzes after every study session.
-
-                    </p>
-
-                </div>
+               
 
 
 
@@ -239,7 +227,7 @@
 
 </div>
 
-<script src="dashboard.js"></script>
+<script src="/static/dashboard.js?v=100"></script>
 
 </body>
 

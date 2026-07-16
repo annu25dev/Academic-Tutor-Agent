@@ -3,186 +3,115 @@
 // ===============================
 
 
-// Select container where chats will appear
-
-const historyContainer = document.getElementById(
-    "historyContainer"
-);
+const BACKEND_URL = "";
 
 
+const historyContainer =
+document.getElementById("historyContainer");
 
 
-// Temporary chat data
-// Later this will come from FastAPI
-
-const chatHistory = [
-
-    {
-        id:1,
-        title:"Binary Search Trees",
-        date:"Yesterday • 8:45 PM"
-    },
-
-
-    {
-        id:2,
-        title:"Operating Systems Notes",
-        date:"2 Days Ago"
-    },
-
-
-    {
-        id:3,
-        title:"Dynamic Programming",
-        date:"Last Week"
-    },
-
-
-    {
-        id:4,
-        title:"Computer Networks",
-        date:"Last Week"
-    },
-
-
-    {
-        id:5,
-        title:"DBMS Revision",
-        date:"Last Month"
-    }
-
-];
-
+const studentId =
+localStorage.getItem("student_id");
 
 
 
 
 // ===============================
-// Display Chat History
-// ===============================
-
-
-function displayHistory(){
-
-
-    historyContainer.innerHTML = "";
-
-
-
-    chatHistory.forEach(chat => {
-
-
-
-        const card = document.createElement("div");
-
-
-        card.classList.add("history-card");
-
-
-
-        card.innerHTML = `
-
-            <i class="fa-solid fa-comments"></i>
-
-
-            <div>
-
-                <h3>${chat.title}</h3>
-
-                <p>${chat.date}</p>
-
-            </div>
-
-        `;
-
-
-
-        // When user clicks a chat
-
-        card.addEventListener(
-            "click",
-            function(){
-
-                openChat(chat.id);
-
-            }
-        );
-
-
-
-        historyContainer.appendChild(card);
-
-
-
-    });
-
-
-}
-
-
-
-
-
-
-// ===============================
-// Open Selected Chat
-// ===============================
-
-
-function openChat(chatId){
-
-
-    console.log(
-        "Opening chat:",
-        chatId
-    );
-
-
-    /*
-       Later connect this with:
-
-       chat.html?id=chatId
-
-       where complete conversation
-       will be displayed.
-    */
-
-
-}
-
-
-
-
-
-
-// ===============================
-// Future FastAPI Connection
+// Fetch Chat Sessions
 // ===============================
 
 
 async function fetchChatHistory(){
 
 
-    /*
-    
-    Later replace dummy data with:
-
-    
-    const response = await fetch(
-        "http://127.0.0.1:8000/chat-history"
-    );
+if(!studentId){
 
 
-    const data = await response.json();
+historyContainer.innerHTML=`
+
+<div class="empty-state">
+
+<i class="fa-solid fa-user"></i>
+
+<p>
+No student found.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
 
 
-    chatHistory = data;
+
+try{
 
 
-    */
+const response = await fetch(
+
+`${BACKEND_URL}/api/chat-sessions/${studentId}`
+
+);
 
 
-    displayHistory();
+
+const result = await response.json();
+
+
+
+console.log(result);
+
+
+
+if(
+
+result.status==="success"
+
+){
+
+
+displayHistory(result.sessions);
+
+
+}
+
+else{
+
+
+showEmpty();
+
+}
+
+
+}
+
+
+
+catch(error){
+
+
+console.error(error);
+
+
+historyContainer.innerHTML=`
+
+<div class="empty-state">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+<p>
+Unable to connect to backend.
+</p>
+
+</div>
+
+`;
+
+}
+
 
 
 }
@@ -192,6 +121,391 @@ async function fetchChatHistory(){
 
 
 
-// Load page
+
+
+// ===============================
+// Display Sessions
+// ===============================
+
+
+function displayHistory(sessions){
+
+
+historyContainer.innerHTML="";
+
+
+
+if(sessions.length===0){
+
+
+showEmpty();
+
+return;
+
+
+}
+
+
+
+sessions.forEach((sessionId,index)=>{
+
+
+const card=document.createElement("div");
+
+
+card.className="history-card";
+
+
+
+card.innerHTML=`
+
+<i class="fa-solid fa-comments"></i>
+
+
+<div>
+
+
+<h3>
+
+Chat Session ${index+1}
+
+</h3>
+
+
+<p>
+
+${sessionId}
+
+</p>
+
+
+</div>
+
+
+`;
+
+
+
+card.addEventListener("click",()=>{
+
+
+openChat(sessionId);
+
+
+});
+
+
+
+historyContainer.appendChild(card);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+// ===============================
+// Empty State
+// ===============================
+
+
+function showEmpty(){
+
+
+historyContainer.innerHTML=`
+
+<div class="empty-state">
+
+<i class="fa-solid fa-comments"></i>
+
+<p>
+No previous chats found.
+</p>
+
+</div>
+
+`;
+
+}
+
+
+
+
+
+
+
+// ===============================
+// Open Chat
+// ===============================
+
+
+async function openChat(sessionId){
+
+
+try{
+
+
+const response=await fetch(
+
+`${BACKEND_URL}/api/chat/${studentId}/${sessionId}`
+
+);
+
+
+
+const result=await response.json();
+
+
+
+console.log(result);
+
+
+
+if(result.status==="success"){
+
+
+showConversation(result.conversation);
+
+
+}
+
+else{
+
+
+alert("Unable to load chat.");
+
+}
+
+
+}
+
+
+
+catch(error){
+
+
+console.error(error);
+
+
+alert("Cannot connect to backend.");
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+// ===============================
+// Show Conversation
+// ===============================
+
+
+function showConversation(conversation){
+
+
+const newWindow = window.open("", "_blank");
+
+
+
+let chatHTML="";
+
+
+
+conversation.forEach(msg=>{
+
+
+let roleClass =
+msg.role==="user"
+?
+"user-msg"
+:
+"ai-msg";
+
+
+
+chatHTML+=`
+
+
+<div class="chat-message ${roleClass}">
+
+
+<h3>
+
+${msg.role.toUpperCase()}
+
+</h3>
+
+
+
+<p>
+
+${msg.content}
+
+</p>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+
+
+
+
+newWindow.document.write(`
+
+
+<html>
+
+
+<head>
+
+
+<title>
+EduPilot Chat
+</title>
+
+
+
+<style>
+
+
+body{
+
+font-family:Arial;
+
+background:#020617;
+
+color:white;
+
+padding:40px;
+
+line-height:1.7;
+
+}
+
+
+
+h1{
+
+text-align:center;
+
+color:#D183C9;
+
+margin-bottom:30px;
+
+}
+
+
+
+.chat-message{
+
+background:#0a0f1f;
+
+border:2px solid #2a3246;
+
+border-radius:15px;
+
+padding:20px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.user-msg{
+
+border-left:5px solid #8B5CF6;
+
+}
+
+
+
+.ai-msg{
+
+border-left:5px solid #D183C9;
+
+}
+
+
+
+h3{
+
+margin-bottom:10px;
+
+color:#D183C9;
+
+}
+
+
+
+p{
+
+white-space:pre-wrap;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+
+<body>
+
+
+<h1>
+EduPilot Chat Conversation
+</h1>
+
+
+${chatHTML}
+
+
+
+</body>
+
+
+</html>
+
+
+`);
+
+
+
+}
+
+
+
+
+
+
+// ===============================
+// Load
+// ===============================
+
 
 fetchChatHistory();

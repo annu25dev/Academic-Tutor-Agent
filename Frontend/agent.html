@@ -6,7 +6,7 @@
 
     <title>EduPilot</title>
 
-    <link rel="stylesheet" href="agent.css">
+    <link rel="stylesheet" href="/static/agent.css">
 
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -24,7 +24,7 @@
 
     <div class="logo">
 
-        <img src="logo.jpg" alt="EduPilot Logo">
+        <img src="/static/logo.jpg" alt="EduPilot Logo">
 
         <h1>Edu<span>Pilot</span></h1>
 
@@ -99,13 +99,13 @@ Whether you're understanding complex concepts, preparing for exams, or planning 
     </section>
     <div class="buttons">
 
-        <a href="form.html" class="btn primary">
+       <a href="/form" class="btn primary">
 
-            <i class="fa-solid fa-user"></i>
+    <i class="fa-solid fa-user"></i>
 
-            Create Your Profile
+    Create Your Profile
 
-        </a>
+</a>
 
         <button id="startBtn" class="btn secondary">
 
@@ -129,16 +129,24 @@ Whether you're understanding complex concepts, preparing for exams, or planning 
 </div>
 
 <script>
-    document.getElementById('startBtn').addEventListener('click', function() {
-        const profileData = localStorage.getItem('userProfile');
-        
-        if (!profileData) {
-            alert('Please fill out your profile first to continue.');
-            return false;
-        }
-        
-        window.location.href = 'dashboard.html';
-    });
+document.getElementById("startBtn").addEventListener("click", function () {
+
+    const studentId = localStorage.getItem("student_id");
+    const sessionId = localStorage.getItem("session_id");
+    const profile = localStorage.getItem("studentProfile");
+
+    // Existing student
+    if (studentId && sessionId && profile) {
+
+        window.location.href = "/dashboard";
+        return;
+
+    }
+
+    // New student
+    window.location.href = "/form";
+
+});
 </script>
 
 </body>

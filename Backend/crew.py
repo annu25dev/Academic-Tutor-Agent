@@ -28,16 +28,23 @@ def run_academic_tutor(student_id: str, session_id: str, student_question: str):
     #Student conversations will be stored at the right place 
     chat = ChatHistory(student_id)
 
+    print("Chat folder:", chat.chat_folder)
+
+    chat.save_message(
+    session_id=session_id,
+    role="user",
+    content=student_question
+)
+
+    print("User message saved successfully.")
+
     student_profile = memory.get_profile()
 
     previous_learning = memory.get_learning_history()
     
     #Every user question will be stored in the chat history of that particular session
-    chat.save_message(
-     session_id=session_id,
-     role="user",
-     content=student_question
-      )
+   
+    print("Assistant message saved successfully.")
     # Router Task
 
     task = router_task(
