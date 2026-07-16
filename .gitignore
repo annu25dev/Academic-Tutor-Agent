@@ -49,26 +49,3 @@ Thumbs.db
 *.tmp
 *.bak
 
-# ===================================================
-# Runtime Generated Student Data
-# ===================================================
-
-Backend/Chat_history/*
-!Backend/Chat_history/.gitkeep
-
-Backend/Memory_agent/*.json
-!Backend/Memory_agent/student_memory.json
-
-# ===================================================
-# ChromaDB Runtime Database
-# ===================================================
-
-Backend/RAG_agent/db/
-Backend/RAG_agent/db/**
-
-# ===================================================
-# Uploaded Documents (Runtime)
-# ===================================================
-
-Backend/RAG_agent/docs/*
-!Backend/RAG_agent/docs/.gitkeep
