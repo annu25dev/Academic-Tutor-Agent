@@ -623,12 +623,41 @@ EduPilot
 - 📂 JSON
 - 🔀 Git & GitHub
 - 🧪 Swagger UI
+
+# 📸 Application Screenshots
+
+## 🏠 Landing Page
+![Landing Page](Screenshots/Landing page.png)
+
+## 💬 Main Interface
+![Main Interface](Screenshots/Main-interface.png)
+
+## 📂 Upload Notes
+![Upload](Screenshots/Upload file interface.png)
+
+## 🧠 Chat History
+![History](Screenshots/Chat history.png)
+
+## 📜 Chat Conversation
+![Chat](Screenshots/Chat Conversation.png)
+
+## 📝 Quiz Library
+![Quiz](Screenshots/quiz.png)
+
+## 📅 Study Planner
+![Planner](Screenshots/Studyplanner.png)
+
+## 🤖 Saved Study Plans
+![AI Planner](Screenshots/AI planner.png)
+
+## 📚 Saved Quizzes
+![AI Quiz](Screenshots/AI quiz.png)
+
 # 👥 Team Contributions
 
 EduPilot was developed collaboratively by a team of five members, with each member contributing to different modules of the project, including AI agent development, backend services, frontend development, Retrieval-Augmented Generation (RAG), memory management, testing, and system integration.
 
 ---
-
 ## 👩‍💻 Member 1 – <ANNU TIWARI>
 
 ### 🧠 AI Workflow, Routing & Backend Integration
