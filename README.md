@@ -36,10 +36,10 @@ Together, personalization, persistent memory, intelligent routing, and document 
 
 ## 🎯 Personalized Learning
 
-- Unique Student Profile
-- Personalized learning history
-- Persistent academic memory
-- Individual study recommendations
+* Unique Student Profile
+* Personalized learning history
+* Persistent academic memory
+* Individual study recommendations
 
 ---
 
@@ -47,13 +47,13 @@ Together, personalization, persistent memory, intelligent routing, and document 
 
 EduPilot combines multiple AI agents that collaborate together:
 
-- Router Agent
-- Tutor Agent
-- Quiz Agent
-- Study Planner Agent
-- Assessment Agent
-- Memory Agent
-- Academic RAG Tool
+* Router Agent
+* Tutor Agent
+* Quiz Agent
+* Study Planner Agent
+* Assessment Agent
+* Memory Agent
+* Academic RAG Tool
 
 Each agent specializes in a different educational task, enabling modular and scalable problem-solving.
 
@@ -63,11 +63,11 @@ Each agent specializes in a different educational task, enabling modular and sca
 
 Students can upload:
 
-- PDF
-- DOCX
-- PPTX
-- TXT
-- XLSX
+* PDF
+* DOCX
+* PPTX
+* TXT
+* XLSX
 
 The uploaded documents are converted into embeddings and stored in ChromaDB, allowing EduPilot to answer questions directly from the student's own study materials.
 
@@ -83,10 +83,10 @@ Example:
 
 Instead of generating one generic response, EduPilot:
 
-- Detects multiple intents
-- Separates the query
-- Routes each task to the appropriate AI agent
-- Combines all outputs into a single response
+* Detects multiple intents
+* Separates the query
+* Routes each task to the appropriate AI agent
+* Combines all outputs into a single response
 
 ---
 
@@ -100,9 +100,9 @@ Every conversation is automatically stored using unique Session IDs, allowing st
 
 Automatically creates personalized quizzes based on:
 
-- Student profile
-- Previous learning
-- Uploaded study materials
+* Student profile
+* Previous learning
+* Uploaded study materials
 
 ---
 
@@ -110,10 +110,10 @@ Automatically creates personalized quizzes based on:
 
 Generates customized study schedules based on:
 
-- Student level
-- Previous learning
-- Exam goals
-- Uploaded syllabus
+* Student level
+* Previous learning
+* Exam goals
+* Uploaded syllabus
 
 ---
 
@@ -251,11 +251,11 @@ Every new student is assigned a unique **Student ID** during registration.
 
 The Student ID is used to store:
 
-- Student Profile
-- Previous Learning
-- Saved Quizzes
-- Saved Study Plans
-- Academic Progress
+* Student Profile
+* Previous Learning
+* Saved Quizzes
+* Saved Study Plans
+* Academic Progress
 
 This information is stored inside the Memory Agent as structured JSON files, enabling personalized responses across future interactions.
 
@@ -267,9 +267,9 @@ Whenever a student starts a new conversation, EduPilot generates a unique **Sess
 
 Each session stores:
 
-- User queries
-- AI responses
-- Conversation timeline
+* User queries
+* AI responses
+* Conversation timeline
 
 This enables multiple independent chat sessions while preserving complete conversation history.
 
@@ -330,70 +330,6 @@ Context-Aware Response
 ```
 
 By combining semantic retrieval with Large Language Models, EduPilot minimizes hallucinations and produces responses grounded in the student's uploaded learning materials.
-## ✨ Key Features
-
-- 🤖 **Multi-Agent AI Architecture** powered by CrewAI.
-- 🧠 **Router Agent** intelligently analyzes user queries and coordinates multiple AI agents for complex requests.
-- 📚 **Academic Tutor Agent** provides personalized explanations using Retrieval-Augmented Generation (RAG).
-- 📝 **Quiz Agent** automatically generates topic-based quizzes from uploaded study materials.
-- 📅 **Study Planner Agent** creates personalized study roadmaps based on learning history and uploaded content.
-- 📊 **Assessment Agent** evaluates student understanding through multiple assessment modes.
-- 💾 **Persistent Memory System** stores student profiles, learning history, quizzes, study plans, and chat sessions using unique Student IDs and Session IDs.
-- 📂 **Document Upload Support** for PDF, DOCX, PPTX, XLSX, and TXT files.
-- 🔍 **Semantic Search** using ChromaDB and Hugging Face Sentence Transformers.
-- 💬 **Chat History Management** with session-wise conversation retrieval.
-- 📖 **Quiz Library** to revisit previously generated quizzes.
-- 🗓️ **Study Planner Library** to access saved study plans anytime.
-- 🌙 **Modern Responsive Frontend** with an intuitive dashboard and interactive UI.
-  # 🏗️ System Architecture
-
-EduPilot follows a modular **multi-agent architecture** built using **CrewAI**, where each agent is responsible for a specialized academic task. Instead of relying on a single AI model for every request, EduPilot intelligently distributes work among multiple collaborating agents to provide accurate, context-aware, and personalized responses.
-
-The complete workflow is illustrated below.
-
-```text
-                           ┌──────────────────────┐
-                           │      Student         │
-                           └──────────┬───────────┘
-                                      │
-                                      ▼
-                           Student Registration
-                                      │
-                                      ▼
-                         Student ID Generation
-                                      │
-                                      ▼
-                          Memory Agent (JSON)
-                                      │
-                 Stores Student Profile & Learning History
-                                      │
-                                      ▼
-                               User Query
-                                      │
-                                      ▼
-                              Router Agent
-                                      │
-      ┌──────────────────────┬──────────────┬────────────────────┐
-      │                      │              │                    │
-      ▼                      ▼              ▼                    ▼
-Tutor Agent            Quiz Agent    Planner Agent    Assessment Agent
-      │                      │              │                    │
-      └───────────────┬──────┴──────────────┴────────────────────┘
-                      │
-                      ▼
-             Academic RAG Tool (if required)
-                      │
-                      ▼
-     ChromaDB + HuggingFace Embeddings + Uploaded Documents
-                      │
-                      ▼
-              Context-Aware AI Response
-                      │
-                      ▼
-         Chat History + Memory Updated (JSON)
-```
-
----
 
 # ⚙️ Workflow
 
@@ -411,11 +347,11 @@ The Memory Agent creates a dedicated memory space for the student.
 
 It stores:
 
-- Student Profile
-- Previous Learning History
-- Generated Quizzes
-- Generated Study Plans
-- Chat Sessions
+* Student Profile
+* Previous Learning History
+* Generated Quizzes
+* Generated Study Plans
+* Chat Sessions
 
 This enables EduPilot to remember the student's academic progress across multiple conversations.
 
@@ -427,10 +363,10 @@ The student asks an academic question or uploads study material.
 
 Examples:
 
-- Teach me Binary Trees
-- Generate quiz from these notes
-- Make a study plan for DBMS
-- Assess my understanding of Networking
+* Teach me Binary Trees
+* Generate quiz from these notes
+* Make a study plan for DBMS
+* Assess my understanding of Networking
 
 ---
 
@@ -448,8 +384,8 @@ Example:
 
 The Router Agent automatically routes:
 
-- "Teach me Lunar Eclipse" → Tutor Agent
-- "Create a study plan for Web Development" → Study Planner Agent
+* "Teach me Lunar Eclipse" → Tutor Agent
+* "Create a study plan for Web Development" → Study Planner Agent
 
 The outputs are then combined into a single coherent response.
 
@@ -461,9 +397,9 @@ Whenever document-based knowledge is required, the selected agent invokes the Ac
 
 The RAG pipeline:
 
-- Retrieves relevant document chunks from ChromaDB.
-- Performs semantic similarity search.
-- Supplies only the most relevant context to the LLM.
+* Retrieves relevant document chunks from ChromaDB.
+* Performs semantic similarity search.
+* Supplies only the most relevant context to the LLM.
 
 This ensures responses remain grounded in the uploaded study material rather than relying solely on the language model's general knowledge.
 
@@ -475,23 +411,23 @@ Depending on the Router Agent's decision, one or more specialized agents are exe
 
 **Tutor Agent**
 
-- Explains academic concepts
-- Uses uploaded documents whenever available
+* Explains academic concepts
+* Uses uploaded documents whenever available
 
 **Quiz Agent**
 
-- Generates personalized quizzes
-- Considers previous learning history
+* Generates personalized quizzes
+* Considers previous learning history
 
 **Study Planner Agent**
 
-- Creates structured study schedules
-- Organizes topics into achievable timelines
+* Creates structured study schedules
+* Organizes topics into achievable timelines
 
 **Assessment Agent**
 
-- Evaluates learning through different assessment modes
-- Provides structured feedback
+* Evaluates learning through different assessment modes
+* Provides structured feedback
 
 ---
 
@@ -501,10 +437,10 @@ After generating the final response, EduPilot updates the student's memory autom
 
 The system records:
 
-- Newly learned topics
-- Generated quizzes
-- Study plans
-- Updated learning history
+* Newly learned topics
+* Generated quizzes
+* Study plans
+* Updated learning history
 
 This enables future recommendations to become increasingly personalized.
 
@@ -516,9 +452,9 @@ Every conversation is assigned a unique **Session ID**.
 
 Each session stores:
 
-- User prompts
-- AI responses
-- Conversation timeline
+* User prompts
+* AI responses
+* Conversation timeline
 
 Students can revisit previous conversations through the Chat History module without losing context.
 # 📂 Project Structure
@@ -607,120 +543,169 @@ EduPilot
 ├── Testing.md
 └── README.md
 
+```
+
+---
 # 📚 Technologies Used
 
-- 🐍 Python
-- ⚡ FastAPI
-- 🤖 CrewAI
-- 🧠 Groq Llama 3.3 70B (LiteLLM)
-- 🔍 LangChain
-- 📦 ChromaDB
-- 🤗 HuggingFace Sentence Transformers
-- 📄 Pydantic
-- 🌐 HTML5
-- 🎨 CSS3
-- ⚙️ JavaScript
-- 📂 JSON
-- 🔀 Git & GitHub
-- 🧪 Swagger UI
+EduPilot is built using modern AI, backend, frontend, and retrieval technologies.
+
+* 🐍 Python
+* ⚡ FastAPI
+* 🤖 CrewAI
+* 🧠 Groq Llama 3.3 70B Versatile (via LiteLLM)
+* 🔍 LangChain
+* 📦 ChromaDB
+* 🤗 Hugging Face Sentence Transformers
+* 📄 Pydantic
+* 🌐 HTML5
+* 🎨 CSS3
+* ⚙️ JavaScript
+* 📂 JSON
+* 🔀 Git & GitHub
+* 🧪 Swagger UI
+
+---
 
 # 📸 Application Screenshots
 
 ## 🏠 Landing Page
-![Landing Page](Screenshots/Landing page.png)
+![Landing Page](Screenshots/Landing%20page.jpg)
+
+---
 
 ## 💬 Main Interface
-![Main Interface](Screenshots/Main-interface.png)
+![Main Interface](Screenshots/Main-interface.jpg)
 
-## 📂 Upload Notes
-![Upload](Screenshots/Upload file interface.png)
+---
+
+## 📂 Upload File Interface
+![Upload File Interface](Screenshots/Upload%20file%20interface.jpg)
+
+---
+
+## 💬 Chat Conversation
+![Chat Conversation](Screenshots/Chat%20conversation.jpg)
+
+---
 
 ## 🧠 Chat History
-![History](Screenshots/Chat history.png)
+![Chat History](Screenshots/Chat%20history.jpg)
 
-## 📜 Chat Conversation
-![Chat](Screenshots/Chat Conversation.png)
+---
 
 ## 📝 Quiz Library
-![Quiz](Screenshots/quiz.png)
+![Quiz Library](Screenshots/Quiz.jpg)
+
+---
 
 ## 📅 Study Planner
-![Planner](Screenshots/Studyplanner.png)
+![Study Planner](Screenshots/Studyplanner.jpg)
+
+---
 
 ## 🤖 Saved Study Plans
-![AI Planner](Screenshots/AI planner.png)
+![AI Planner](Screenshots/AI%20plannar.jpg)
+
+---
 
 ## 📚 Saved Quizzes
-![AI Quiz](Screenshots/AI quiz.png)
+![AI Quiz](Screenshots/AI%20quiz.jpg)
+
+---
 
 # 👥 Team Contributions
 
-EduPilot was developed collaboratively by a team of five members, with each member contributing to different modules of the project, including AI agent development, backend services, frontend development, Retrieval-Augmented Generation (RAG), memory management, testing, and system integration.
+EduPilot was developed collaboratively by a team of five members, with each member contributing to different modules including AI agents, Retrieval-Augmented Generation (RAG), backend services, frontend development, memory management, testing, and system integration.
 
 ---
-## 👩‍💻 Member 1 – <ANNU TIWARI>
+
+## 👩‍💻 Member 1 – **Annu Tiwari**
 
 ### 🧠 AI Workflow, Routing & Backend Integration
 
-- 🧭 Designed and developed the **Router Agent**, which serves as the central decision-making component of EduPilot by analyzing user prompts, handling multi-intent queries, and routing tasks to the appropriate AI agents in the correct execution order.
-- 📝 Developed the **Assessment Agent** using CrewAI, defining its role, prompts, and structured evaluation modes to assess students through multiple assessment strategies.
-- ⚙️ Built the central **CrewAI workflow (`crew.py`)**, integrating all AI agents, implementing RAG initialization after document uploads, and enabling personalized execution using Student ID and Session ID.
-- 🚀 Developed several **FastAPI endpoints** including student registration, chat session creation, conversation retrieval, uploaded document listing, saved quiz retrieval, and study plan retrieval.
-- 🌐 Integrated backend APIs with the frontend for **Chat History**, **Quiz Library**, **Study Planner**, and uploaded document management while configuring the project with **Groq Llama 3.3 70B Versatile** through LiteLLM.
+* 🧭 Designed and developed the **Router Agent** for intelligent prompt analysis, multi-intent query handling, and dynamic agent routing.
+* 📝 Developed the **Assessment Agent** with multiple evaluation modes using CrewAI.
+* ⚙️ Integrated all AI agents through **crew.py**, enabling agent orchestration, RAG initialization, and personalized execution using Student ID and Session ID.
+* 🚀 Developed FastAPI endpoints for student registration, chat sessions, uploaded documents, saved quizzes, and study plans.
+* 🌐 Connected backend APIs with the frontend for Chat History, Quiz Library, Study Planner, and document management while configuring the Groq LLM via LiteLLM.
 
 ---
 
-## 👩‍💻 Member 2 – <ISHITA SANGER>
+## 👩‍💻 Member 2 – **Ishita Sanger**
 
-### 🧠 Memory Agent, RAG Pipeline & Data Management
+### 💾 Memory Agent & RAG Pipeline
 
-- 💾 Designed and implemented the **Memory Agent**, providing persistent student memory using JSON-based storage with unique Student IDs and Session IDs for personalized learning across conversations.
-- 📚 Built the complete **Text-based Retrieval-Augmented Generation (RAG) pipeline**, supporting multiple document formats including PDF, DOCX, PPTX, XLSX, and TXT using LangChain, ChromaDB, and Hugging Face Sentence Transformers.
-- 🔍 Developed document ingestion, chunking, embedding generation, semantic retrieval, and optimized retrieval parameters for efficient document-grounded responses.
-- 💬 Implemented the **Chat History module**, enabling session-wise storage and retrieval of conversations while maintaining continuity across multiple interactions.
-- ✅ Designed **Pydantic models** for structured validation of Tutor, Planner, and Quiz outputs, ensuring reliable communication between agents and successful real-time updates in the frontend.
+* Developed the **Memory Agent** with persistent JSON-based student memory using unique Student IDs and Session IDs.
+* Built the complete **Text-based RAG pipeline** supporting PDF, DOCX, PPTX, XLSX, and TXT documents.
+* Implemented document ingestion, chunking, embedding generation, semantic retrieval, and ChromaDB integration.
+* Developed the Chat History module with session-wise conversation storage and retrieval.
+* Designed Pydantic models for structured outputs and real-time memory updates.
 
 ---
 
-## 👩‍💻 Member 3 – <ANUSHKA BISWAL>
+## 👩‍💻 Member 3 – **Anushka Biswal**
 
 ### 📅 Study Planner Agent & Backend Services
 
-- 📅 Developed the **Study Planner Agent** using CrewAI to generate personalized day-wise study schedules based on student learning history and academic goals.
-- ⚡ Built the core **FastAPI backend**, implementing API endpoints for chat communication, document uploads, and secure frontend-backend interaction using CORS middleware.
-- 📂 Implemented document upload functionality using **UploadFile**, FormData, and python-multipart while securely managing API keys using python-dotenv.
-- 🌐 Integrated backend APIs with the frontend using JavaScript Fetch API, enabling real-time communication between the user interface and backend services.
-- 🛠️ Contributed to backend architecture, API testing, debugging, and deployment preparation while maintaining version control using Git and GitHub.
+* Developed the **Study Planner Agent** using CrewAI for personalized study schedules.
+* Built the FastAPI backend with chat and file-upload endpoints.
+* Implemented secure API handling using python-dotenv and UploadFile.
+* Integrated frontend with backend using JavaScript Fetch API.
+* Contributed to backend architecture, debugging, testing, and Git-based collaboration.
 
 ---
 
-## 👩‍💻 Member 4 – <SANCHITA PANDEY>
+## 👩‍💻 Member 4 – **Sanchita Pandey**
 
-### 📝 Quiz Agent Development & System Testing
+### 📝 Quiz Agent & Testing
 
-- 🎯 Developed the **Quiz Agent** using CrewAI, implementing personalized quiz generation based on student profiles, learning history, and router decisions.
-- 🧪 Built an automated testing framework using **DeepEval**, evaluating answer relevancy and faithfulness through custom LLM-based evaluation models.
-- 📊 Conducted response latency analysis by measuring end-to-end execution time and generating statistical performance metrics.
-- 📈 Performed router accuracy benchmarking using balanced engineering datasets to validate intelligent query classification and routing performance.
-- 🔧 Assisted in repository restructuring, backend organization, Git workflow management, dependency resolution, and comprehensive system validation.
+* Developed the **Quiz Agent** for personalized quiz generation.
+* Implemented automated evaluation using **DeepEval**.
+* Performed response latency analysis and performance benchmarking.
+* Validated Router accuracy through classification testing.
+* Assisted with repository restructuring, Git workflow, and system validation.
 
 ---
 
-## 👩‍💻 Member 5 – <SANVI SARDANA>
+## 👩‍💻 Member 5 – **Sanvi Sardana**
 
-### 🎨 Frontend Development & Academic Tutor Agent
+### 🎨 Frontend Development & Tutor Agent
 
-- 💻 Designed and developed the complete **responsive frontend** of EduPilot using HTML5, CSS3, and JavaScript, including Dashboard, Student Profile, Upload Notes, Chat History, Quiz Library, and Study Planner.
-- 🎯 Implemented client-side functionality such as form validation, drag-and-drop file uploads, local storage management, dynamic navigation, and interactive user interfaces.
-- 🌐 Integrated the frontend with the FastAPI backend for student registration, dashboard operations, profile creation, and seamless API communication.
-- 🤖 Developed the **Academic Tutor Agent** using CrewAI and integrated it with the Retrieval-Augmented Generation (RAG) pipeline to provide document-aware academic assistance.
-- 🔄 Collaborated using Git and GitHub while validating backend APIs through Swagger UI and ensuring smooth frontend-backend integration across the project.
+* Designed the complete responsive frontend using HTML, CSS, and JavaScript.
+* Built Dashboard, Student Profile, Upload Notes, Chat History, Quiz Library, and Study Planner interfaces.
+* Integrated frontend with FastAPI APIs.
+* Developed the Academic Tutor Agent and connected it with the RAG pipeline.
+* Collaborated through GitHub and validated APIs using Swagger UI.
 
----# 🙏 Acknowledgements
-
-We sincerely thank our faculty mentors and the open-source community whose tools and frameworks made EduPilot possible.
-
-Special thanks to the developers of CrewAI, FastAPI, LangChain, ChromaDB, LiteLLM, Hugging Face, and Groq for providing the technologies used in this project.
 ---
 
-⭐ If you found EduPilot interesting, don't forget to star this repository!
+# 🙏 Acknowledgements
+
+We sincerely thank our faculty mentors for their continuous guidance and support throughout the development of EduPilot.
+
+We also acknowledge the amazing open-source community behind:
+
+* 🤖 CrewAI
+* ⚡ FastAPI
+* 🔍 LangChain
+* 📦 ChromaDB
+* 🧠 Groq
+* 🤗 Hugging Face
+* 💡 LiteLLM
+* 🌐 GitHub
+
+Their tools and frameworks made this project possible.
+
+---
+
+<div align="center">
+
+## ⭐ If you found EduPilot interesting, please consider giving this repository a Star!
+
+Your support motivates us to continue improving the project. 🚀
+
+**Thank you for visiting EduPilot! 🎓**
+
+</div>
+
