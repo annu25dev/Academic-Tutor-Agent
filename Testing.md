@@ -54,7 +54,7 @@ Router Accuracy: 100%
 
 **RESPONSE LATENCY TESTING REPORT: Test 3**
 
-## Test Run 1 (First 5 Queries)
+## Test Run 1 
 
 |No.| User Query                            | Response Latency |
 | 1 | Explain Newton's laws in simple terms | 7.72 sec         |

@@ -3,155 +3,143 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>EduPilot | Study Planner</title>
+    <title>EduPilot | Study Planner</title>
 
-<link rel="stylesheet" href="/static/studyplanner.css">
+    <link rel="stylesheet" href="/static/studyplanner.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
 <body>
 
-<div class="planner-container">
+    <div class="planner-container">
 
-    <div class="planner-header">
+        <!-- Header -->
 
-        <a href="/dashboard" class="back-btn">
+        <div class="planner-header">
 
-            <i class="fa-solid fa-arrow-left"></i>
+            <a href="/dashboard" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Dashboard
+            </a>
 
-            Back to Dashboard
+            <h1>AI Study Planner</h1>
 
-        </a>
-
-        <h1>AI Study Planner</h1>
-
-        <p>
-            EduPilot automatically creates your personalized study schedule
-            based on your saved learning history.
-        </p>
-
-    </div>
-
-
-    <div class="planner-layout">
-
-        <!-- LEFT -->
-
-        <div class="planner-form">
-
-            <div class="planner-info">
-
-                <i class="fa-solid fa-robot"></i>
-
-                <div>
-
-                    <h2>AI Planner</h2>
-
-                    <p>
-                        No need to select subject or topic.
-                        EduPilot analyses your learning history and
-                        automatically prepares the best study schedule.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="input-group">
-
-                <label>Exam Date</label>
-
-                <input
-                type="date"
-                id="examDate">
-
-            </div>
-
-
-            <div class="input-group">
-
-                <label>Daily Study Hours</label>
-
-                <select id="hours">
-
-                    <option value="1">1 Hour</option>
-                    <option value="2">2 Hours</option>
-                    <option value="3">3 Hours</option>
-                    <option value="4">4 Hours</option>
-                    <option value="5">5+ Hours</option>
-
-                </select>
-
-            </div>
-
-
-            <button id="generateBtn">
-
-                <i class="fa-solid fa-calendar-days"></i>
-
-                Generate AI Study Plan
-
-            </button>
+            <p>
+                EduPilot automatically creates your personalized study schedule
+                based on your saved learning history.
+            </p>
 
         </div>
 
+        <!-- Main Layout -->
 
-        <!-- RIGHT -->
+        <div class="planner-layout">
 
-        <div class="planner-preview">
+            <!-- LEFT -->
 
-            <h2>Planner Features</h2>
+            <div class="planner-form">
 
-            <div class="feature-card">
+                <!-- AI Planner -->
 
-                <i class="fa-solid fa-brain"></i>
+                <div class="planner-info">
 
-                <div>
+                    <i class="fa-solid fa-robot"></i>
 
-                    <h3>Learning History</h3>
+                    <div>
 
-                    <p>
-                        Uses your previous topics automatically.
-                    </p>
+                        <h2>AI Planner</h2>
+
+                        <p>
+                            No need to select subject or topic.
+                            EduPilot analyses your learning history and
+                            automatically prepares the best study schedule.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Saved Plans -->
+
+                <div class="plan-section">
+
+                    <h2>Your Study Plan</h2>
+
+                    <div class="plan-container" id="planContainer">
+
+                        <div class="empty-state">
+
+                            <i class="fa-solid fa-book-open"></i>
+
+                            <p>
+                                Your AI-generated study plan will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="feature-card">
+            <!-- RIGHT -->
 
-                <i class="fa-solid fa-list-check"></i>
+            <div class="planner-preview">
 
-                <div>
+                <h2>Planner Features</h2>
 
-                    <h3>Revision Schedule</h3>
+                <div class="feature-card">
 
-                    <p>
-                        Includes revision sessions and practice tasks.
-                    </p>
+                    <i class="fa-solid fa-brain"></i>
+
+                    <div>
+
+                        <h3>Learning History</h3>
+
+                        <p>
+                            Uses your previous topics automatically.
+                        </p>
+
+                    </div>
 
                 </div>
 
-            </div>
+                <div class="feature-card">
 
-            <div class="feature-card">
+                    <i class="fa-solid fa-list-check"></i>
 
-                <i class="fa-solid fa-clock"></i>
+                    <div>
 
-                <div>
+                        <h3>Revision Schedule</h3>
 
-                    <h3>Time Management</h3>
+                        <p>
+                            Includes revision sessions and practice tasks.
+                        </p>
 
-                    <p>
-                        Optimized according to your available study hours.
-                    </p>
+                    </div>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                    <div>
+
+                        <h3>Time Management</h3>
+
+                        <p>
+                            Optimized according to your available study hours.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -161,32 +149,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
     </div>
 
-
-    <div class="plan-section">
-
-        <h2>Your Study Plan</h2>
-
-        <div
-        class="plan-container"
-        id="planContainer">
-
-            <div class="empty-state">
-
-                <i class="fa-solid fa-book-open"></i>
-
-                <p>
-                    Your AI-generated study plan will appear here.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script src="/static/studyplanner.js"></script>
+    <script src="/static/studyplanner.js"></script>
 
 </body>
 

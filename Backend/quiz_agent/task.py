@@ -21,6 +21,8 @@ def quiz_task(student_question: str, student_profile: str = "None", previous_lea
         - Read the retrieved context carefully.
         - If relevant context is available, generate quiz questions ONLY from the retrieved notes.
         - If no relevant context is retrieved, generate quiz questions using your own knowledge.
+        - Ignore any retrieved document that is unrelated or only partially related to the student's question, even if it is returned by the RAG tool. Do not mix information from multiple documents unless they discuss the same topic.
+        - If multiple documents are retrieved, first determine which document best matches the student's query, and base the study plan only on that document.
         - Mention the document source whenever available.
         """,
         expected_output=

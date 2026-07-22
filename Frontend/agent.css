@@ -1,4 +1,3 @@
-
 *{
     margin:0;
     padding:0;
@@ -52,7 +51,6 @@ body{
     z-index:2;
 }
 
-
 .logo img{
     width:120px;
     margin-bottom:20px;
@@ -105,16 +103,16 @@ body{
     border:none;
     display:inline-flex;
     align-items:center;
+    justify-content:center;
     gap:8px;
 }
 
+/* ===========================
+   CREATE PROFILE BUTTON
+=========================== */
+
 .primary{
     background:linear-gradient(135deg,#8B5CF6,#D183C9);
-    color:white;
-}
-
-.secondary{
-    border:2px solid #D183C9;
     color:white;
 }
 
@@ -123,8 +121,30 @@ body{
     box-shadow:0 0 20px rgba(209,131,201,.45);
 }
 
+/* ===========================
+   LET'S GET STARTED BUTTON
+=========================== */
+
+.secondary{
+    background:#ffffff;
+    color:#000000;
+    border:2px solid #D183C9;
+}
+
+.secondary i{
+    color:#000000;
+    transition:.3s;
+}
+
 .secondary:hover{
-    background:#D183C9;
+    background:linear-gradient(135deg,#8B5CF6,#D183C9);
+    color:white;
+    transform:translateY(-4px);
+    box-shadow:0 0 20px rgba(209,131,201,.45);
+}
+
+.secondary:hover i{
+    color:white;
 }
 
 .features{
@@ -220,33 +240,33 @@ footer{
 
 @media(max-width:768px){
 
-.logo img{
-    width:90px;
-}
+    .logo img{
+        width:90px;
+    }
 
-.logo h1{
-    font-size:40px;
-}
+    .logo h1{
+        font-size:40px;
+    }
 
-.logo h3{
-    font-size:18px;
-}
+    .logo h3{
+        font-size:18px;
+    }
 
-.description{
-    font-size:15px;
-}
+    .description{
+        font-size:15px;
+    }
 
-.buttons{
-    flex-direction:column;
-}
+    .buttons{
+        flex-direction:column;
+    }
 
-.btn{
-    width:100%;
-}
+    .btn{
+        width:100%;
+    }
 
-.features h2,
-.agents h2{
-    font-size:28px;
-}
+    .features h2,
+    .agents h2{
+        font-size:28px;
+    }
 
 }

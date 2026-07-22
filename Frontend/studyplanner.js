@@ -4,11 +4,7 @@
 
 const BACKEND_URL = "";
 
-const generateBtn = document.getElementById("generateBtn");
 const planContainer = document.getElementById("planContainer");
-
-const examDate = document.getElementById("examDate");
-const hours = document.getElementById("hours");
 
 const studentId = localStorage.getItem("student_id");
 
@@ -77,7 +73,6 @@ async function loadPlans() {
 }
 
 
-
 // =======================================
 // Display Plans
 // =======================================
@@ -124,9 +119,6 @@ function displayPlans(plans) {
     });
 
 
-
-    // Button Events
-
     document.querySelectorAll(".viewPlanBtn").forEach(button => {
 
         button.addEventListener("click", function () {
@@ -142,7 +134,6 @@ function displayPlans(plans) {
     });
 
 }
-
 
 
 // =======================================
@@ -208,45 +199,6 @@ function showPlan(plan) {
     `);
 
 }
-
-
-
-// =======================================
-// Generate Button
-// =======================================
-
-generateBtn.addEventListener("click", function () {
-
-    if (examDate.value === "") {
-
-        alert("Please select exam date.");
-
-        return;
-
-    }
-
-    generateBtn.disabled = true;
-
-    generateBtn.innerHTML = `
-        <i class="fa-solid fa-spinner fa-spin"></i>
-        Loading...
-    `;
-
-    setTimeout(() => {
-
-        loadPlans();
-
-        generateBtn.disabled = false;
-
-        generateBtn.innerHTML = `
-            <i class="fa-solid fa-calendar-days"></i>
-            Show Saved Study Plans
-        `;
-
-    }, 700);
-
-});
-
 
 
 // =======================================

@@ -76,7 +76,7 @@ def load_documents(docs_path):
 
 #--------------------------------------2. CHUNKING------------------------------------------
 
-def split_documents(documents,chunk_size=800,chunk_overlap=0):
+def split_documents(documents,chunk_size=800,chunk_overlap=100):
 
     #Split documents into smaller chunks
     print("\nSplitting documents into chunks...")

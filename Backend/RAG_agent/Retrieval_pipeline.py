@@ -6,26 +6,29 @@ from langchain_chroma import Chroma
 #from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 load_dotenv()
-persistent_directory = "RAG_agent/db/chroma_db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DOCS_PATH = os.path.join(BASE_DIR, "docs")
+DB_PATH = os.path.join(BASE_DIR, "db", "chroma_db")
+
 
 #----------------------------------1. LOAD EMBEDDINGS & VECTOR STORE---------------------------------
 
 embedding_model=HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
 
-db=Chroma(
-        persist_directory=persistent_directory,
-        embedding_function=embedding_model,
-        collection_metadata={"hnsw:space":"cosine"}
-)
-
-#To check if it's not empty
-print(db._collection.count())
 
 #----------------------------------2. SEARCH FOR RELEVANT DOCUMENTS---------------------------------
 
 
 def retrieve_context(query:str):
-    retriever=db.as_retriever(search_kwargs={"k":2})
+    db=Chroma(
+        persist_directory=DB_PATH,
+        embedding_function=embedding_model,
+        collection_metadata={"hnsw:space":"cosine"}
+)
+    #To check if it's not empty
+    print(db._collection.count())
+    retriever=db.as_retriever(search_kwargs={"k":3})
+    
 
     relevant_docs=retriever.invoke(query)
 

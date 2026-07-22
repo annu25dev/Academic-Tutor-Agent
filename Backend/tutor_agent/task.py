@@ -61,6 +61,9 @@ A highly personalized learning response that includes:
 • One practice question.
 • Short summary.
 • Suggested next topic for learning.
+- Ignore any retrieved document that is unrelated or only partially related to the student's question, even if it is returned by the RAG tool. Do not mix information from multiple documents unless they discuss the same topic.
+- If multiple documents are retrieved, first determine which document best matches the student's query, and base the study plan only on that document.
+- Mention the document source whenever available.
 """,
 
         agent=tutor_agent,
