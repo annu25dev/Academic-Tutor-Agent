@@ -3,7 +3,7 @@ from .agent import tutor_agent
 from llm import llm
 from Pydantic_models import TutorOutput
 
-def Tutor_task(student_question, student_profile, previous_learning):
+def Tutor_task(student_question, student_profile, previous_learning,previous_conversation):
 
     task = Task(
 
@@ -15,6 +15,8 @@ Student Profile:
 {student_profile}
 Previous Learning History:
 {previous_learning}
+previous conversation:
+{previous_conversation}
 Instructions:
 1. Greet the student by name whenever possible.
 2. Personalize the explanation according to the student's profile
@@ -39,7 +41,11 @@ Instructions:
 answer ONLY from that context.
 16. If the retrieved context is empty,
 then answer using your own knowledge.
-17. Mention the document source whenever available.
+17. Read the retrieved syllabus or study material carefully.
+18. If relevant context is retrieved, explain using ONLY the document(s) that are directly relevant to the student's current request.
+19. Ignore any retrieved document that is unrelated or only partially related to the student's question, even if it is returned by the RAG tool. Do not mix information from multiple documents unless they discuss the same topic.
+10. If multiple documents are retrieved, first determine which document best matches the student's query, and base the study plan only on that document.
+11. Mention the document source that is apt to the prompt given by user whenever available.
 """,
 
         expected_output="""

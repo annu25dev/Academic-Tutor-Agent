@@ -9,7 +9,9 @@ def assessment_task(
 
     student_profile,
 
-    previous_learning
+    previous_learning,
+
+    previous_conversation
 
 ):
 
@@ -34,6 +36,10 @@ Student Profile:
 Previous Learning:
 
 {previous_learning}
+
+previous conversation:
+
+{previous_conversation}
 
 Your responsibilities:
 
@@ -103,7 +109,11 @@ Never teach the complete topic again.
 
 12. If no relevant context is retrieved, perform the assessment using your own knowledge.
 
-13. Mention the document source whenever available.
+13. Read the retrieved syllabus or study material carefully.
+14. If relevant context is retrieved, generate the assessment using ONLY the document(s) that are directly relevant to the student's current request.
+15. Ignore any retrieved document that is unrelated or only partially related to the student's question, even if it is returned by the RAG tool. Do not mix information from multiple documents unless they discuss the same topic.
+16. If multiple documents are retrieved, first determine which document best matches the student's query, and base the study plan only on that document.
+17. Mention the document source that is apt to the prompt given by user whenever available.
 
 """,
 

@@ -3,7 +3,7 @@ from .agent import planner_agent
 from Pydantic_models import PlannerOutput
 
 
-def planner_task(student_question, student_profile, previous_learning):
+def planner_task(student_question, student_profile, previous_learning, previous_conversation):
     
     return Task(
         description=f"""
@@ -18,6 +18,9 @@ def planner_task(student_question, student_profile, previous_learning):
         Topics they have already studied:
         {previous_learning}
 
+        previous conversation:
+        {previous_conversation}
+
         Your job is to:
         
         1. Understand the student's goal and identify the important topics they need to learn.
@@ -30,7 +33,7 @@ def planner_task(student_question, student_profile, previous_learning):
         8. If relevant context is retrieved, generate the study plan using ONLY the document(s) that are directly relevant to the student's current request.
         9. Ignore any retrieved document that is unrelated or only partially related to the student's question, even if it is returned by the RAG tool. Do not mix information from multiple documents unless they discuss the same topic.
         10. If multiple documents are retrieved, first determine which document best matches the student's query, and base the study plan only on that document.
-        11. Mention the document source whenever available.
+        11. Mention the document source that is apt to the prompt given by user whenever available.
         
         """,
 
