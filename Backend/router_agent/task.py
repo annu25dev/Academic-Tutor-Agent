@@ -6,7 +6,9 @@ def router_task(
 
     student_profile,
 
-    previous_learning
+    previous_learning,
+
+    previous_conversation
 
 ):
 
@@ -27,6 +29,10 @@ Student Profile:
 Previous Learning:
 
 {previous_learning}
+
+ previous_conversation:
+
+ { previous_conversation}
 
 Your responsibilities:
 
@@ -98,6 +104,24 @@ Select Planner Agent when the student wants:
 9. Never create study plans.
 
 10. Only perform routing.
+
+11. If the student's latest question contains reference words such as:
+
+- same
+- it
+- this
+- next
+- next part
+- continue
+- continue this
+- continue learning
+- previous topic
+- last topic
+- where we left
+
+then resolve those references using the Previous Conversation before routing the request.
+
+Do not use Previous Learning unless the previous conversation does not provide enough information.
 
 """,
 
