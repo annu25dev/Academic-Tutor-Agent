@@ -257,6 +257,10 @@ hr{
     line-height:1.8;
     font-size:16px;
     min-height:180px;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .response-actions{
@@ -418,3 +422,55 @@ hr{
     }
 
 }
+
+/* Markdown Styling */
+
+.response-text h1,
+.response-text h2,
+.response-text h3,
+.response-text h4{
+    color:#ffffff;
+    margin-top:18px;
+    margin-bottom:10px;
+}
+
+.response-text p{
+    margin-bottom:12px;
+}
+
+.response-text ul,
+.response-text ol{
+    margin-left:22px;
+    margin-bottom:14px;
+}
+
+.response-text li{
+    margin-bottom:6px;
+}
+
+.response-text strong{
+    color:#ffffff;
+}
+
+.response-text code{
+    background:#111827;
+    color:#D183C9;
+    padding:2px 6px;
+    border-radius:6px;
+}
+
+.response-text pre{
+    background:#111827;
+    padding:15px;
+    border-radius:10px;
+    overflow-x:auto;
+    margin:15px 0;
+}
+
+.response-text blockquote{
+    border-left:4px solid #D183C9;
+    padding-left:12px;
+    color:#cbd5e1;
+    margin:12px 0;
+}
+

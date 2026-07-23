@@ -114,6 +114,9 @@ Never teach the complete topic again.
 15. Ignore any retrieved document that is unrelated or only partially related to the student's question, even if it is returned by the RAG tool. Do not mix information from multiple documents unless they discuss the same topic.
 16. If multiple documents are retrieved, first determine which document best matches the student's query, and base the study plan only on that document.
 17. Mention the document source that is apt to the prompt given by user whenever available.
+18.- Use previous conversation ONLY when the current question is a follow-up.
+- If the current question introduces a completely new topic, ignore unrelated previous conversation.
+- Never combine two unrelated topics into one answer.
 
 """,
 

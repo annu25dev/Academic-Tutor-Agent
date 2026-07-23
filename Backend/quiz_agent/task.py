@@ -28,6 +28,9 @@ def quiz_task(student_question: str, student_profile: str = "None", previous_lea
         - Ignore any retrieved document that is unrelated or only partially related to the student's question, even if it is returned by the RAG tool. Do not mix information from multiple documents unless they discuss the same topic.
         - If multiple documents are retrieved, first determine which document best matches the student's query, and base the study plan only on that document.
         - Mention the document source that is apt to the prompt given by user whenever available.
+        - Use previous conversation ONLY when the current question is a follow-up.
+        - If the current question introduces a completely new topic, ignore unrelated previous conversation.
+        - Never combine two unrelated topics into one answer.
         """,
         expected_output=
         """

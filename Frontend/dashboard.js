@@ -145,7 +145,9 @@ async function askQuestion() {
 
         }
 
-        responseText.textContent = aiAnswer;
+        responseText.innerHTML = marked.parse(aiAnswer, {
+               breaks: true
+});
 
     }
 

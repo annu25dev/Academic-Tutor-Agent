@@ -546,6 +546,136 @@ EduPilot
 ```
 
 ---
+# ⚙️ Installation & Setup
+
+### 📥 Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/annu25dev/Academic-Tutor-Agent.git
+cd Academic-Tutor-Agent
+```
+
+### 🐍 Step 2: Create & Activate Virtual Environment
+
+Create the virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate it:
+
+**🪟 Windows**
+```bash
+venv\Scripts\activate
+```
+
+**🍎 Linux/macOS**
+```bash
+source venv/bin/activate
+```
+
+### 📦 Step 3: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 🔑 Step 4: Configure API Key
+
+Create a `.env` file inside the **Backend** directory and add:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+```
+
+### 📂 Step 5: Navigate to Backend
+
+```bash
+cd Backend
+```
+
+### 🚀 Step 6: Start the FastAPI Server
+
+```bash
+uvicorn fastapi_app.main:app --reload
+```
+
+### 🌐 Step 7: Open the Application
+
+Open the following URL in your browser:
+
+```
+http://127.0.0.1:8000/
+```
+
+### 👤 Step 8: Register as a New User
+
+Create your student profile. A unique **Student ID** and persistent memory will be generated automatically.
+
+### 📚 Step 9: Upload Study Materials
+
+Upload supported files such as **PDF, DOCX, TXT, CSV, XLSX, and PPTX**.
+
+✨ Documents are automatically:
+- Processed
+- Embedded
+- Stored in **ChromaDB**
+
+No manual ingestion script is required.
+
+### 🤖 Step 10: Start Learning
+
+Interact with **EduPilot** by asking academic questions, generating quizzes, creating study plans, or requesting assessments.
+
+---
+
+# 🎯 Usage Instructions
+
+### 🟢 1. Launch the Application
+Run the FastAPI server and open:
+
+```
+http://127.0.0.1:8000/
+```
+
+### 👤 2. Register
+Enter your academic details to create your personalized student profile.
+
+### 📄 3. Upload Documents
+Upload your educational notes through the **Upload Notes** page.
+
+### 💬 4. Ask Questions
+Use the AI Tutor to:
+- 📖 Learn concepts
+- 📝 Generate quizzes
+- 📅 Create study plans
+- 📊 Request assessments
+
+### 🧠 5. Intelligent Routing
+The **Router Agent** automatically forwards your request to the appropriate specialized agent.
+
+### 🔍 6. RAG-based Responses
+If relevant uploaded content is available, the Tutor Agent answers using **Retrieval-Augmented Generation (RAG)**. Otherwise, responses are generated using the LLM's general knowledge.
+
+### 📚 7. View Saved Content
+Access previously generated:
+- 📝 Quiz Library
+- 📅 Study Planner
+
+### 🕒 8. Review Chat History
+Open **Chat History** from the sidebar to revisit previous conversations.
+
+### 💾 9. Continue Learning
+EduPilot automatically updates:
+- 📈 Learning Progress
+- 💬 Conversation History
+- 📝 Saved Quizzes
+- 📅 Study Plans
+
+for a fully personalized learning experience.
+---
+
 # 📚 Technologies Used
 
 EduPilot is built using modern AI, backend, frontend, and retrieval technologies.
